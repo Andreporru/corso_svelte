@@ -28,6 +28,8 @@
 		a {
 			color: white;
 			text-decoration: none;
+			font-family: 'Comic Sans MS', cursive;
+
 		}
 
 		/*	a:hover {

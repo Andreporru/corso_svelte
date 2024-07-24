@@ -9,7 +9,9 @@
 	};
 </script>
 
-<Counter />
+
 <h1>Welcome to SvelteKit!!</h1>
+
 <p><a href="/about">About</a></p>
-<p><button {onclick}>About</button></p>
+<br><br>	
+<Counter />
