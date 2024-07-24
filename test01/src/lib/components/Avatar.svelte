@@ -3,7 +3,7 @@
 
 	const login = () => {
 		storeUser.id = 1;
-		storeUser.name = 'Mario rossi';
+		storeUser.name = 'Mario rosso';
 		storeUser.mail = '';
 	};
 	const logout = () => {
