@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { counters } from '$lib/stores/counter.svelte';
 	import Avatar from './Avatar.svelte';
+	import Ibatar from './Ibatar.svelte';
 </script>
 
 <div class="navbar">
@@ -8,8 +9,10 @@
 		<a href="/">Home</a>
 		<a href="/about">About </a>
 		<a href="/user-edit"> user</a>
+		<a href="/iban-edit">Iban</a>
 	</div>
 	<Avatar />
+	<Ibatar />
 </div>
 
 <style>
