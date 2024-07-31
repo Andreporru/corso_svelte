@@ -9,12 +9,15 @@
 		onclick?: () => void;
 		// ...rest
 		[key: string]: any;
-	}
+		
 
+	}
+	
 	let { label, bgColor, color, onclick, ...rest }: Props = $props();
+
 </script>
 
-<button style:background-color={bgColor} style:color {onclick} {...rest}>ciao mondo</button>
+<button style:background-color={bgColor} style:color {onclick}{...rest}>ciao mondo</button>
 
 <style>
 	button {
