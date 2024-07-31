@@ -3,13 +3,14 @@
 	import Layout from '$lib/components/Layout.svelte';
 	const onclick = () => {
 		console.log('=== clicked');
-	}
+		
+	};
 	const onfocus = () => {
 		console.log('=== focused');
 	};
 	const onhover = (elem: HTMLElement) => {
 		console.log('===hovered', elem);
-		elem.style.backgroundColor = 'lightgreen';
+		elem.style.backgroundColor = 'red';
 	};
 	let valore: boolean = $state(false);
 	let valore2: boolean =$state(false);
