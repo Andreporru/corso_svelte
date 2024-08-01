@@ -8,25 +8,31 @@
 </script>
 
 
+<!-- svelte-ignore css_unused_selector -->
 <br><br>
 <div class="container">
     {#if storeUser.id > 0}
         <h1>Inserisci iban</h1>
+        <div class="primary">
         <label for="cineu">CEU</label>
-        <input type="number" id="cineu" name="cineu" bind:value={ibanUser.cineu} placeholder="2 numeri" />
-        
+        <input type="number" id="cineu" name="cineu" min="0" max="99" bind:value={ibanUser.cineu} placeholder="2 numeri" />
+        </div>
+        <div class="primary">
         <label for="cin">CIN</label>
-        <input type="text" id="cin" name="cin" bind:value={ibanUser.cin} placeholder="1 carattere" />
-        
+        <input type="text" id="cin" name="cin" maxlength="2" bind:value={ibanUser.cin} placeholder="1 carattere" />
+        </div>
+        <div class="primary">
         <label for="abi">ABI</label>
         <input type="number" id="abi" name="abi" bind:value={ibanUser.abi} placeholder="5 numeri" />
-        
+        </div>
+        <div class="primary">
         <label for="cab">CAB</label>
         <input type="number" id="cab" name="cab" bind:value={ibanUser.cab} placeholder="5 numeri" />
-        
+        </div>
+        <div class="primary">
         <label for="nconto">N°C:</label>
         <input type="number" id="nconto" name="nconto" bind:value={ibanUser.nconto} placeholder="12 numeri" />
-        
+        </div>
         <button onclick={calcola}>Calcola IBAN</button>
         
         <div class="result">{ibanUser.iban}</div>
@@ -46,6 +52,11 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         background-color: #f4f4f9;
     }
+    .primary:hover{
+        transform: translateY(-8px);
+      
+    }
+
 
     h1 {
         color: blueviolet;
@@ -71,7 +82,10 @@
     }
 
     button {
-        background-color:blueviolet;
+        
+        
+        background: linear-gradient(45deg,blueviolet,   rgb(4, 161, 96));
+
         Font-family: 'Comic Sans MS', cursive;
         color: white;
         padding: 15px 20px;
@@ -85,8 +99,13 @@
     }
 
     button:hover {
-        background-color: blueviolet;
+        background:linear-gradient(45deg,rgb(4, 161, 96),blueviolet   );
+        transform: translateY(-8px);
     }
+    button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 1, 29, 0.3);
+}
 
     .result {
         margin-top: 20px;

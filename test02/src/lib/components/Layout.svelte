@@ -17,15 +17,17 @@
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <!-- svelte-ignore a11y_mouse_events_have_key_events -->
-<div class="layout" style:flex-direction={direction} style:visibility={nascondi} onmouseover={onmousehover} {...rest}>
+<div class="layout"  style:flex-direction={direction} style:visibility={nascondi} onmouseover={onmousehover} {...rest}>
 	{@render children()}
 </div>
 
 
 <style>
 	.layout {
+		background-color: aqua;
 		display: flex;
-	    
-
+		justify-content: center; /*allinea orizzontalmente*/
+		align-items: center; /* allinea verticalmente */
+		
 	}
 </style>
