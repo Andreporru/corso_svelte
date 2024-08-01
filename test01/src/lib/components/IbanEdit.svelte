@@ -119,7 +119,7 @@
         text-align: center;
     }
 
-     .error   ::-moz-progress-bar {
+     .error::-moz-progress-bar {
         font-size: 18px;
     }
 </style>
