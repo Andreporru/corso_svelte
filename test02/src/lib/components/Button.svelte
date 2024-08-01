@@ -47,7 +47,7 @@
 
 /* Hover effect for the primary button */
 .btn.primary:hover {
-    background: linear-gradient(45deg,#2575fc, #6a11cb);
+    background: linear-gradient(45deg, #fcdb24, #6a11cb);
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
