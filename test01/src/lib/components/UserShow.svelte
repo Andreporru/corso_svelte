@@ -1,0 +1,78 @@
+<script lang="ts">
+    import { storeUser } from "$lib/stores/user.svelte";
+    let sw:number = $state(0);
+    const onclick= () =>{
+        sw = 1;
+
+    }
+    const onblur = () =>{
+        sw = 0;
+    }
+</script>
+<br><br>
+<div class="container">
+
+    <h1>Dati Utente</h1>
+    {#if sw==0}
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+    <p {onclick}>id: {storeUser.id}</p>
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+    <p {onclick}>nome: {storeUser.name}</p>
+    
+    {:else}   
+    <label for="id">inserisci id</label>
+    <input {onblur} type="number" id="id" name="id" bind:value={storeUser.id}>
+    <label for="nome">inserisci nome</label>
+    <input {onblur} type="text" id="nome" name="nome" bind:value={storeUser.name}>
+    <label for="email">inserisci email</label>
+    <input {onblur} type="numbemail" id="email" name="email" bind:value={storeUser.mail}>
+    {/if} 
+
+
+
+
+</div>
+<style>
+	.container {
+		font-family: Arial, sans-serif;
+		max-width: 400px;
+		margin: 0 auto;
+		background: white;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		background-color: #f4f4f9;
+	}
+
+	h1 {
+		color: blueviolet;
+		font-size: 24px;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	label {
+		display: block;
+		margin: 10px 0 5px;
+		font-weight: bold;
+	}
+
+	input[type='text'],
+	input[type='number'],
+	input[type='mail'] {
+		width: 100%;
+		padding: 10px;
+		margin: 5px 0 20px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		box-sizing: border-box;
+	}
+    p{
+        display: block;
+		margin: 10px 0 5px;
+		font-weight: bold;
+    }
+
+</style>

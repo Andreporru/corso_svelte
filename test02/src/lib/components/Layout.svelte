@@ -21,13 +21,12 @@
 	{@render children()}
 </div>
 
-
+cd
 <style>
 	.layout {
 		background-color: aqua;
 		display: flex;
 		justify-content: center; /*allinea orizzontalmente*/
-		align-items: center; /* allinea verticalmente */
-		
+		align-items: center; /* allinea verticalmente */		
 	}
 </style>
