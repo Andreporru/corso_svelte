@@ -5,7 +5,7 @@
         sw = 1;
 
     }
-    const onblur = () =>{
+    const ondblclick = () =>{
         sw = 0;
     }
 </script>
@@ -20,14 +20,15 @@
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
     <p {onclick}>nome: {storeUser.name}</p>
+	<p {onclick}>mail: {storeUser.mail}</p>
     
     {:else}   
     <label for="id">inserisci id</label>
-    <input {onblur} type="number" id="id" name="id" bind:value={storeUser.id}>
+    <input {ondblclick} type="number" id="id" name="id" bind:value={storeUser.id}>
     <label for="nome">inserisci nome</label>
-    <input {onblur} type="text" id="nome" name="nome" bind:value={storeUser.name}>
+    <input {ondblclick} type="text" id="nome" name="nome" bind:value={storeUser.name}>
     <label for="email">inserisci email</label>
-    <input {onblur} type="numbemail" id="email" name="email" bind:value={storeUser.mail}>
+    <input {ondblclick} type="mail" id="email" name="email" bind:value={storeUser.mail}>
     {/if} 
 
 

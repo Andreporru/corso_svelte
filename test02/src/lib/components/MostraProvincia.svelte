@@ -8,9 +8,22 @@
 	const prov: Record<string, string> = {
 		no: 'novara',
 		mi: 'milano',
-		vc: 'vercelli'
+		vc: 'vercelli',
+		sv: 'savona',
+		po: 'prato',
+		os: 'oristano',
+		sa:'salerno'
 	};
 	const provincia = $derived(prov[value] ?? 'provincia sconosciuta');
-</script>
 
-<input value="bin" />
+</script>
+<div >
+	<p>{provincia}</p>
+</div>
+<style>
+	p{
+		text-align: center;
+		font-size:20px;
+		text-shadow: blueviolet;
+	}
+</style>
