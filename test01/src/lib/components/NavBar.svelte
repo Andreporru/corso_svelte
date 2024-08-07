@@ -11,6 +11,7 @@
 		<a href="/user-edit">Login</a>
 		<a href="/user-show">Dati</a>
 		<a href="/iban-edit">Iban</a>
+		<a href="/activities">attività</a>
 	</div>
 	<Avatar />
 	<Ibatar />
@@ -23,7 +24,6 @@
 		background-color: blueviolet;
 		color: white;
 		justify-content: space-between;
-
 		padding: 10px;
 
 		a {

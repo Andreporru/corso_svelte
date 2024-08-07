@@ -21,7 +21,7 @@
 	{@render children()}
 </div>
 
-cd
+
 <style>
 	.layout {
 		background-color: aqua;
