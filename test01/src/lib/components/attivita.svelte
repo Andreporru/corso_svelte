@@ -97,7 +97,7 @@
 
     .annulla {
         margin-left:auto;
-
+        align-items: right;
         padding: 3px 6px;
         margin-left: 10px;
         background-color: #dc3545;
