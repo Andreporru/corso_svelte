@@ -11,18 +11,18 @@
 </script>
 <br><br>
 <div class="container">
-
+{#if storeUser.id>0}
     <h1>Dati Utente</h1>
     {#if sw==0}
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-    <p {onclick}>id: {storeUser.id}</p>
+    <p class="dato" {onclick}>id: {storeUser.id}</p>
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-    <p {onclick}>nome: {storeUser.name}</p>
+    <p class="dato"{onclick}>nome: {storeUser.name}</p>
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-	<p {onclick}>mail: {storeUser.mail}</p>
+	<p class="dato"{onclick}>mail: {storeUser.mail}</p>
     
     {:else}   
     <label for="id">inserisci id</label>
@@ -32,12 +32,23 @@
     <label for="email">inserisci email</label>
     <input {ondblclick} type="mail" id="email" name="email" bind:value={storeUser.mail}>
     {/if} 
-
+{:else}
+	<h1 class="error">ERRORE</h1>
+	<p class="error">Non è possibile visualizzare e/o inserire i dati  perché l'utente non ha effettuato il login</p>
+{/if}
 
 
 
 </div>
 <style>
+	  .error::-moz-progress-bar {
+        font-size: 18px;
+    }
+    .error {
+        color: red;
+        text-align: center;
+    }
+	
 	.container {
 		font-family: Arial, sans-serif;
 		max-width: 400px;
@@ -75,7 +86,12 @@
     p{
         display: block;
 		margin: 10px 0 5px;
-		font-weight: bold;
+	/*	font-weight: bold;*/
     }
+	.dato{
+		display: block;
+		margin: 10px 0 5px;
+	 	font-weight: bold;
+	}
 
 </style>

@@ -1,20 +1,60 @@
 <script lang="ts">
-    let attivita: string[] = [];
+    import { onMount } from 'svelte';
+    import { storeUser } from '$lib/stores/user.svelte';
+
+    // Definisce un tipo per le attività
+    interface Attivita {
+        nome: string;
+        completata: boolean;
+    }
+
+    let attivita: Attivita[] = [];
     let frase: string = '';
 
-    const aggiungi = () => {
-        if (frase.trim() !== '') {
-            attivita = [...attivita, frase];
-            frase = ''; // pulisce il campo di input dopo l'aggiunta
+    // Carica le attività dal localStorage
+    const loadAttivita = () => {
+        const savedAttivita = localStorage.getItem('attivita');
+        if (savedAttivita) {
+            attivita = JSON.parse(savedAttivita);
         }
     };
 
+    // Salva le attività nel localStorage
+    const saveAttivita = () => {
+        localStorage.setItem('attivita', JSON.stringify(attivita));
+    };
+
+    // Aggiunge una nuova attività
+    const aggiungi = () => {
+        if (frase.trim() !== '') {
+            attivita = [...attivita, { nome: frase, completata: false }];
+            frase = ''; // pulisce il campo di input dopo l'aggiunta
+            saveAttivita(); // salva le attività dopo l'aggiunta
+        }
+    };
+
+    // Toglie o aggiunge la spunta all'attività
+    const toggleCompletata = (index: number) => {
+        attivita = attivita.map((attività, i) =>
+            i === index ? { ...attività, completata: !attività.completata } : attività
+        );
+        saveAttivita(); // salva le attività dopo la modifica
+    };
+
+    // Elimina un'attività
     const elimina = (index: number) => {
         attivita = attivita.filter((_, i) => i !== index);
+        saveAttivita(); // salva le attività dopo la rimozione
     };
+
+    // Carica le attività quando il componente è montato
+    onMount(() => {
+        loadAttivita();
+    });
 </script>
 
 <div class="container" style="margin-top:50px;">
+    {#if storeUser.id>0}
     <label for="frase">Nuova attività</label>
     <input type="text" id="frase" name="frase" bind:value={frase}>
     <button class="agg" on:click={aggiungi}>Aggiungi</button>
@@ -25,15 +65,34 @@
             <br>
             {/if}
             <li>
-                <input type="checkbox">
-                {attività}
-                <button class ="annulla" on:click={() => elimina(index)}>Elimina</button>
-            </li>
-        {/each}
+                <input type="checkbox" checked={attività.completata} on:change={() => toggleCompletata(index)}>
+                {attività.nome}
+                <button class="annulla" on:click={() => elimina(index)}>Elimina</button>
+                </li>
+            {/each}
     </ul>
+    {:else}
+    <h1 class="error">ERRORE</h1>
+    <p class="error">Non è possibile visualizzare e/o inserire le attività perché l'utente non ha effettuato il login</p>
+    {/if}
 </div>
 
+
 <style>
+     h1 {
+        color: blueviolet;
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+      .error::-moz-progress-bar {
+        font-size: 18px;
+    }
+    .error {
+        color: red;
+        text-align: center;
+    }
     .container {
         font-family: Arial, sans-serif;
         max-width: 400px;
@@ -46,6 +105,8 @@
     }
 
     label {
+        color:blueviolet;
+        font-size:25px;
         display: block;
         margin-bottom: 5px;
         font-weight: bold;
@@ -59,17 +120,19 @@
         border-radius: 5px;
         box-sizing: border-box;
     }
+
     .agg {
+        border-radius: 5px;
         padding: 5px 10px;
         font-size: 14px;
-        background-color:blueviolet;
+        background-color: blueviolet;
         color: white;
         border: none;
         cursor: pointer;
     }
 
     .agg:hover {
-        background-color:rgb(78, 0, 78);
+        background-color: rgb(78, 0, 78);
     }
 
     ul {
@@ -85,10 +148,8 @@
         display: flex;
         align-items: center;
     }
-
-    li span.completata {
-        text-decoration: line-through;
-        color: gray;
+    li:hover{
+        transform:translateY(-8px);
     }
 
     input[type="checkbox"] {
@@ -96,10 +157,9 @@
     }
 
     .annulla {
-        margin-left:auto;
-        align-items: right;
+        border-radius:5px;
+        margin-left: auto;
         padding: 3px 6px;
-        margin-left: 10px;
         background-color: #dc3545;
         color: white;
         border: none;

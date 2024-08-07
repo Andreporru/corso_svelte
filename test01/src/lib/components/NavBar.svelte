@@ -12,6 +12,7 @@
 		<a href="/user-show">Dati</a>
 		<a href="/iban-edit">Iban</a>
 		<a href="/activities">attività</a>
+		<a href="/calcula">calcolatrice</a>
 	</div>
 	<Avatar />
 	<Ibatar />
