@@ -3,7 +3,10 @@
     import { storeUser } from '$lib/stores/user.svelte';
 
     const calcola = () => {
+
         ibanUser.iban = ibanUser.st + ibanUser.cineu + ibanUser.cin + ibanUser.abi + ibanUser.cab + ibanUser.nconto;
+        const loadIban= ibanUser.iban;
+        localStorage.setItem('iban',JSON.stringify(loadIban));
     };
 </script>
 

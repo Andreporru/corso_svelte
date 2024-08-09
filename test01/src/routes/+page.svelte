@@ -36,12 +36,12 @@
             <div class="card">
                 <h3>calcolatrice</h3>
                 <p>I tuoi calcoli  sempre a portatra di mano.</p>
-                <a href="/notes">Vai alla calcolatrice</a>
+                <a href="/calcula">Vai alla calcolatrice</a>
             </div>
             <div class="card">
                 <h3>iban</h3>
                 <p>componi il tuoi iban per averlo sempre con te</p>
-                <a href="/settings">Vai al  tuo iban</a>
+                <a href="/iban-edit">Vai al tuo iban</a>
             </div>
         </div>
     </div>

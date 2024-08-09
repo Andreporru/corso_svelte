@@ -1,11 +1,17 @@
 <script lang="ts">
 	import { storeUser } from '$lib/stores/user.svelte';
 	import { goto } from '$app/navigation';
+	import { ibanUser } from '$lib/stores/iban.svelte';
 
 	const login = () => {
 		const savedId = localStorage.getItem('id');
 		const savedName = localStorage.getItem('name');
 		const savedMail = localStorage.getItem('mail');
+
+		const savedIban = localStorage.getItem('iban');
+		if(savedIban){
+			ibanUser.iban= savedIban;
+		}
 
 		if (savedId) {
 			storeUser.id = parseInt(savedId, 10); // Convertire la stringa in numero
@@ -22,6 +28,7 @@
 		storeUser.id = 0;
 		storeUser.name = '';
 		storeUser.mail = '';
+		ibanUser.iban = '';
 	};
 
 	const vai = () => {

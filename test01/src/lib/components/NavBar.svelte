@@ -7,11 +7,12 @@
 <div class="navbar">
 	<div class="links">
 		<a href="/">Home</a>
-			<a href="/about">About </a>
+		<a href="/about">About </a>
 		<a href="/user-edit">Login</a>
 		<a href="/user-show">Dati</a>
 		<a href="/iban-edit">Iban</a>
 		<a href="/activities">attività</a>
+		<a href="/finances">finanze</a>
 		<a href="/calcula">calcolatrice</a>
 	</div>
 	<Avatar />

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { ibanUser } from "$lib/stores/iban.svelte";
     import { storeUser } from "$lib/stores/user.svelte";
     let sw:number = $state(0);
     const onclick= () =>{
@@ -23,6 +24,10 @@
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<p class="dato"{onclick}>mail: {storeUser.mail}</p>
+
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+	<p class="dato"{onclick}>iban: {ibanUser.iban}</p>
     
     {:else}   
     <label for="id">inserisci id</label>
@@ -31,6 +36,8 @@
     <input {ondblclick} type="text" id="nome" name="nome" bind:value={storeUser.name}>
     <label for="email">inserisci email</label>
     <input {ondblclick} type="mail" id="email" name="email" bind:value={storeUser.mail}>
+	<label for="iban">inserisci iban</label>
+	<input {ondblclick} type="text" id="iban" name="iban" bind:value={ibanUser.iban}>
     {/if} 
 {:else}
 	<h1 class="error">ERRORE</h1>
