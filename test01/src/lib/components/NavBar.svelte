@@ -7,7 +7,7 @@
 <div class="navbar">
 	<div class="links">
 		<a href="/">Home</a>
-		<a href="/about">About </a>
+			<a href="/about">About </a>
 		<a href="/user-edit">Login</a>
 		<a href="/user-show">Dati</a>
 		<a href="/iban-edit">Iban</a>
@@ -16,6 +16,7 @@
 	</div>
 	<Avatar />
 	<Ibatar />
+	
 </div>
 
 <style>

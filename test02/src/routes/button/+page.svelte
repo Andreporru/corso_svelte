@@ -25,6 +25,6 @@
 <Layout direction={valore ? 'column' : 'row'} nascondi={valore2 ? 'hidden': 'visible'} {onhover} style="border:1px solid #ccc; padding: 8px">
 	<!-- se ue valore è true da column se è false da row-->
 	<Button label="Ciao mondo"  />
-	<Button label="Ciao mondo" bgColor="blueviolet" />
+	<Button label="Ciao mondo" bgColor="blueviolet"/>
 	<Button label="Ciao mondo" bgColor="blueviolet" color="white" {onclick} {onfocus} />
 </Layout>

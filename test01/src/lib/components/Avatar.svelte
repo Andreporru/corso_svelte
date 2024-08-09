@@ -1,25 +1,42 @@
 <script lang="ts">
 	import { storeUser } from '$lib/stores/user.svelte';
+	import { goto } from '$app/navigation';
 
 	const login = () => {
-		storeUser.id = 1;
-		storeUser.name = 'Mario rosso';
-		storeUser.mail = '';
+		const savedId = localStorage.getItem('id');
+		const savedName = localStorage.getItem('name');
+		const savedMail = localStorage.getItem('mail');
+
+		if (savedId) {
+			storeUser.id = parseInt(savedId, 10); // Convertire la stringa in numero
+		}
+		if (savedName) {
+			storeUser.name = savedName; // Nessun JSON.parse necessario per le stringhe
+		}
+		if (savedMail) {
+			storeUser.mail = savedMail; // Nessun JSON.parse necessario per le stringhe
+		}
 	};
+
 	const logout = () => {
 		storeUser.id = 0;
 		storeUser.name = '';
 		storeUser.mail = '';
 	};
+
+	const vai = () => {
+		goto('/'); // Assicurarsi che la funzione goto punti a un percorso valido
+	};
 </script>
 
 <div class="container">
 	{#if storeUser.id > 0}
-		benvenuto {storeUser.name}!
-		<button class="auth-button" onclick={logout}></button>
+		<p>Benvenuto {storeUser.name}!</p>
+		<button class="auth-button" on:click={logout}>Logout</button>
 	{:else}
-		<button class="auth-button" onclick={login}>Login</button>
+		<button class="auth-button" on:click={login}>Login</button>
 	{/if}
+	<button class="auth-button" on:click={vai}>Vai alla Home</button>
 </div>
 
 <style>
@@ -32,7 +49,7 @@
 	.auth-button {
 		background-color: white;
 		color: blueviolet;
-		border: 2px solid white;
+		border: 2px solid blueviolet;
 		padding: 5px 10px;
 		border-radius: 5px;
 		font-family: 'Comic Sans MS', cursive;
@@ -43,6 +60,5 @@
 	.auth-button:hover {
 		background-color: blueviolet;
 		color: white;
-		border: 2px solid white;
 	}
 </style>

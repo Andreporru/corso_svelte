@@ -59,6 +59,7 @@
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		background-color: #f4f4f9;
 	}
+	
 
 	h1 {
 		color: blueviolet;
@@ -92,6 +93,9 @@
 		display: block;
 		margin: 10px 0 5px;
 	 	font-weight: bold;
+	}
+	.dato:hover{
+		transform:translateY(-4px);
 	}
 
 </style>

@@ -52,8 +52,9 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         background-color: #f4f4f9;
     }
+    
     .primary:hover{
-        transform: translateY(-8px);
+        transform: translateY(-5px);
       
     }
 
@@ -100,7 +101,7 @@
 
     button:hover {
         background:linear-gradient(45deg,rgb(4, 161, 96),blueviolet   );
-        transform: translateY(-8px);
+        transform: translateY(-5px);
     }
     button:focus {
     outline: none;
