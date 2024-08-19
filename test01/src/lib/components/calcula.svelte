@@ -84,7 +84,7 @@
 
 <style>
     .calculator {
-        width: 300px;
+        width: 400px ;
         margin: 50px auto;
         background: #fff;
         padding: 20px;

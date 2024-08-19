@@ -40,6 +40,9 @@
 			text-decoration: underline;
 		}*/
 	}
+	a:hover{
+		font-size: larger;
+	}
 	.links {
 		display: flex;
 		flex-direction: row;

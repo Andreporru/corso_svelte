@@ -54,7 +54,7 @@
 
     
 <style>
-  
+ 
     .header {
        /* background-color: blueviolet;
         background:linear-gradient(45deg,rgb(135, 78, 158),blueviolet   );*/
@@ -113,5 +113,6 @@
         position: fixed;
         bottom: 0;
         width: 100%;
+        margin-left:0;
     }
 </style>

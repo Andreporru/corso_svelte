@@ -9,6 +9,6 @@
 
 <style>
 	.container {
-		margin: 0.5rem;
+		margin: 0;
 	}
 </style>
