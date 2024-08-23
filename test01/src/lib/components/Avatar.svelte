@@ -29,6 +29,7 @@
 		storeUser.name = '';
 		storeUser.mail = '';
 		ibanUser.iban = '';
+		storeUser.isLogged='false';
 	};
 
 	const vai = () => {

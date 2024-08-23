@@ -5,75 +5,79 @@
 	import { storeUser } from '$lib/stores/user.svelte';
 	import { redirect } from '@sveltejs/kit';
 	let password : string;
-	let sw = 0;
+	let id:number;
+    let sw=0;
 
-	
 
 	let firstpassword:string;
 	const onclick =()=>{
-		if (storeUser.password && password && storeUser.password !== password)
-		{
-			console.log('password incompleta o diversa');
-			sw=1;
-		}else 
-		{
 
-	
-			const nome = storeUser.name;
-			const id = storeUser.id;
-			const mail = storeUser.mail;
-			const pass = storeUser.password
-			localStorage.setItem(`nome_${storeUser.id}`,nome);
-			localStorage.setItem(`id_${storeUser.id}`,id.toString());
-			localStorage.setItem(`mail_${storeUser.id}`,mail);
-			localStorage.setItem(`password_${storeUser.id}`,pass);
-			goto("/");
+			sw=0;
+			
+			const savedId = localStorage.getItem(`id_${id}`);
+
+		    const savedpassword = localStorage.getItem(`password_${id}`);
+            if (!savedId){
+                sw=1;
+            }else
+            {
+
+                sw=0;
+                if(password===savedpassword)
+                {
+                   
+                    const savedname = localStorage.getItem(`nome_${id}`);
+                    const savedmail = localStorage.getItem(`mail_${id}`);
+                    storeUser.isLogged="true";
+                    if(savedname)
+                    {
+                        storeUser.name=savedname;   
+                    }
+                    if(savedmail)
+                    {
+                        storeUser.mail=savedmail;   
+                    }
+                    storeUser.id=Number(savedId);
+
+                }else
+                {
+                    sw=3;
+                }
+            }
+		
 		}
-	}
+	
 </script>
 
 <br /><br />
 
 <div class="container">
-
+{#if storeUser.isLogged=="false"}
 	<h1>Login</h1>
 	<label for="IDuser">ID</label>
-	<input type="number" id="IDuser" name="IDuser" bind:value={storeUser.id}/>
+	<input type="number" id="IDuser" name="IDuser" bind:value={id}/>
 
-	<label for="user">Nome</label>
-	<input type="text" id="user" name="user" bind:value={storeUser.name} />
-
-	<label for="mail">Mail</label>
-	<input type="mail" id="mail" name="mail" bind:value={storeUser.mail}  />
 	
 	<label for="password">password</label>
-	<input type="password" id="password" name="password" bind:value={storeUser.password}  />
-
-
-	<label for="confermaPassword">conferma password</label>
-	<input type="password" id="confermaPassword" name="confermaPassword"
-	style= "box-shadow: {storeUser.password && password && storeUser.password !== password ? '0 0 15px red' : 'none'}"
-	bind:value={password}  />
-
-	
-	{#if storeUser.password && password && storeUser.password !== password}
-		<p>Password incongruenti</p>
-	{/if}
-	{#if sw==1}
-		<p></p>
-	{/if}
+	<input type="password" id="password" name="password" bind:value={password}  />
 
 	<br>
 	
 
-	<button {onclick}>registrati</button>
-
+	<button {onclick}>login</button>
+{:else if storeUser.isLogged== "true"}
+<p>login effettuato con successo</p>
+{/if}
 
 
 </div>
-	{#if sw==1}
-	<p>conferma password incompleta o icongruente</p>
-	{/if}
+{#if sw===1}
+    <p>id non trovato, </p>
+    <a href="/user-edit"> Registrarsi?</a>
+{/if}
+{#if sw===3}
+    <p>Password o id errati</p>
+{/if}
 
 <pre>
 {JSON.stringify(storeUser, null, 2)}
@@ -136,9 +140,8 @@
 		font-weight: bold;
 	}
 
-	input[type='text'],
+
 	input[type='number'],
-	input[type='mail'],
 	input[type='password']
 	 {
 		width: 100%;

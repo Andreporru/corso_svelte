@@ -8,7 +8,7 @@
 	<div class="links">
 		<a href="/">Home</a>
 		<a href="/about">About </a>
-		<a href="/user-edit">Login</a>
+		<a href="/login">Login</a>
 		<a href="/user-show">Dati</a>
 		<a href="/iban-edit">Iban</a>
 		<a href="/activities">attività</a>
