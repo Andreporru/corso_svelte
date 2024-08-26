@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { ibanUser } from '$lib/stores/iban.svelte';
 
 
 	import { storeUser } from '$lib/stores/user.svelte';
@@ -18,7 +19,7 @@
 
 		    const savedpassword = localStorage.getItem(`password_${id}`);
             if (!savedId){
-                sw=1;
+                sw=3;
             }else
             {
 
@@ -28,6 +29,7 @@
                    
                     const savedname = localStorage.getItem(`nome_${id}`);
                     const savedmail = localStorage.getItem(`mail_${id}`);
+					const savediban = localStorage.getItem(`iban_${id}`)
                     storeUser.isLogged="true";
                     if(savedname)
                     {
@@ -37,6 +39,11 @@
                     {
                         storeUser.mail=savedmail;   
                     }
+					if(savediban)
+                    {
+						ibanUser.iban=savediban;
+                    }
+					
                     storeUser.id=Number(savedId);
 
                 }else
@@ -50,7 +57,12 @@
 </script>
 
 <br /><br />
-
+{#if sw===3}
+<div class="wrongpass">
+    <p class="errato">Password o id errati</p>
+</div>
+{/if}
+<br>
 <div class="container">
 {#if storeUser.isLogged=="false"}
 	<h1>Login</h1>
@@ -71,25 +83,40 @@
 
 
 </div>
-{#if sw===1}
-    <p>id non trovato, </p>
-    <a href="/user-edit"> Registrarsi?</a>
-{/if}
-{#if sw===3}
-    <p>Password o id errati</p>
+<br>
+
+{#if storeUser.isLogged=="false"}
+<div class="container">
+    <p>Nuovo in Gestionale personale? </p>
+    <a href="/user-edit"> Registrati</a>
+</div>
 {/if}
 
-<pre>
+
+
+<!-- <pre>
 {JSON.stringify(storeUser, null, 2)}
-</pre>
+</pre> -->
 
 <style>
 	p{
-		color: red;
-		font-size: 13px;
+		color:blueviolet;
+		font-size: 15px;
 		margin-top: -10px;
 	}
-	
+	a{
+		color: blueviolet;
+		font-size: 15px;
+		margin-top: -10px;
+	}
+	a:hover{
+		font-size: larger;
+	}
+	p.errato{
+		color:red;
+		font-size: 15px;
+		margin-top: -10px;
+	}
 	
 	button {
         
@@ -125,6 +152,18 @@
 		border-radius: 10px;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		background-color: #f4f4f9;
+	}
+	.wrongpass{
+		font-family: Arial, sans-serif;
+		text-align: center;		
+		max-width: 400px;
+		font-size: 20;
+		margin: 0 auto;
+		background: white;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		background-color: #ec13133d;
 	}
 
 	h1 {

@@ -31,7 +31,7 @@
             <div class="card">
                 <h3>login</h3>  
                 <p>Effettu il login per avere dati e opzioni personalizzate!</p>
-                <a href="/user-edit">Vai al login</a>
+                <a href="/login">Vai al login</a>
             </div>
             <div class="card">
                 <h3>calcolatrice</h3>

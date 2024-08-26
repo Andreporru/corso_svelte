@@ -18,11 +18,11 @@
 		}else 
 		{
 
-	
+	        storeUser.isLogged = "true";
 			const nome = storeUser.name;
 			const id = storeUser.id;
 			const mail = storeUser.mail;
-			const pass = storeUser.password
+			const pass = storeUser.password;
 			localStorage.setItem(`nome_${storeUser.id}`,nome);
 			localStorage.setItem(`id_${storeUser.id}`,id.toString());
 			localStorage.setItem(`mail_${storeUser.id}`,mail);
@@ -75,9 +75,9 @@
 	<p>conferma password incompleta o icongruente</p>
 	{/if}
 
-<pre>
+<!-- <pre>
 {JSON.stringify(storeUser, null, 2)}
-</pre>
+</pre> -->
 
 <style>
 	p{
