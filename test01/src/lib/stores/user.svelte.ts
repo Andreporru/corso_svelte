@@ -4,6 +4,7 @@ export type User = {
     mail: string;
     password: string;
     isLogged: string;
+    indirizzo: string;
 };
 
 export const storeUser: User = $state({
@@ -11,5 +12,6 @@ export const storeUser: User = $state({
     name: "",
     mail: "",
     password: "",
-    isLogged:"false"
+    isLogged:"false",
+    indirizzo: ""
 });

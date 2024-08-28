@@ -4,24 +4,26 @@
 	import { ibanUser } from '$lib/stores/iban.svelte';
 
 	const login = () => {
-		const savedId = localStorage.getItem('id');
-		const savedName = localStorage.getItem('name');
-		const savedMail = localStorage.getItem('mail');
+		// const savedId = localStorage.getItem('id');
+		// const savedName = localStorage.getItem('name');
+		// const savedMail = localStorage.getItem('mail');
 
-		const savedIban = localStorage.getItem('iban');
-		if(savedIban){
-			ibanUser.iban= savedIban;
-		}
 
-		if (savedId) {
-			storeUser.id = parseInt(savedId, 10); // Convertire la stringa in numero
-		}
-		if (savedName) {
-			storeUser.name = savedName; // Nessun JSON.parse necessario per le stringhe
-		}
-		if (savedMail) {
-			storeUser.mail = savedMail; // Nessun JSON.parse necessario per le stringhe
-		}
+		// const savedIban = localStorage.getItem('iban');
+		// if(savedIban){
+		// 	ibanUser.iban= savedIban;
+		// }
+
+		// if (savedId) {
+		// 	storeUser.id = parseInt(savedId, 10); // Convertire la stringa in numero
+		// }
+		// if (savedName) {
+		// 	storeUser.name = savedName; // Nessun JSON.parse necessario per le stringhe
+		// }
+		// if (savedMail) {
+		// 	storeUser.mail = savedMail; // Nessun JSON.parse necessario per le stringhe
+		// }
+		goto('/login');
 	};
 
 	const logout = () => {
@@ -38,7 +40,7 @@
 </script>
 
 <div class="container">
-	{#if storeUser.id > 0}
+	{#if storeUser.isLogged=="true"}
 		<p>Benvenuto {storeUser.name}!</p>
 		<button class="auth-button" on:click={logout}>Logout</button>
 	{:else}

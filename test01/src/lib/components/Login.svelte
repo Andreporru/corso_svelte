@@ -8,14 +8,16 @@
 	let password : string;
 	let id:number;
     let sw=0;
-
+   
 
 	let firstpassword:string;
 	const onclick =()=>{
+      
 
 			sw=0;
 			
 			const savedId = localStorage.getItem(`id_${id}`);
+			
 
 		    const savedpassword = localStorage.getItem(`password_${id}`);
             if (!savedId){
@@ -71,7 +73,7 @@
 
 	
 	<label for="password">password</label>
-	<input type="password" id="password" name="password" bind:value={password}  />
+	<input type="password" id="password" name="password" bind:value={password}/>
 
 	<br>
 	

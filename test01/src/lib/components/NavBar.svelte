@@ -28,11 +28,13 @@
 		color: white;
 		justify-content: space-between;
 		padding: 10px;
+		
+		font-size: 20px;
 
 		a {
 			color: white;
 			text-decoration: none;
-			font-family: 'Comic Sans MS', cursive;
+			
 
 		}
 

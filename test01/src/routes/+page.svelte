@@ -48,7 +48,7 @@
 </div>
 
 <div class="footer">
-    &copy; 2024 Gestionale Personale. Tutti i diritti riservati.
+    &copy; 2024 Gestionale Personale di Porru Andrea. Tutti i diritti riservati.
 </div>
 </div>
 
@@ -59,7 +59,7 @@
        /* background-color: blueviolet;
         background:linear-gradient(45deg,rgb(135, 78, 158),blueviolet   );*/
         color: blueviolet;
-        font-size: 30px;
+        font-size: 35px;
         padding: 20px;
         text-align: center;
        
