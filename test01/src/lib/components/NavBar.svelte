@@ -27,6 +27,7 @@
 		color: white;
 		justify-content: space-between;
 		padding: 10px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 
 		font-size: 20px;
 
@@ -40,6 +41,7 @@
 		}*/
 	}
 	a:hover {
+		transition: all 0.2s ease-in-out;
 		font-size: larger;
 	}
 	.links {

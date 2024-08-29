@@ -76,10 +76,10 @@
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		background-color: #f4f4f9;
 	}
-
+/* 
 	.primary:hover {
 		transform: translateY(-5px);
-	}
+	} */
 
 	h1 {
 		color: blueviolet;
@@ -120,6 +120,7 @@
 	}
 
 	button:hover {
+		transition: all 0.5s ease-in-out;
 		background: linear-gradient(45deg, rgb(4, 161, 96), blueviolet);
 		transform: translateY(-5px);
 	}

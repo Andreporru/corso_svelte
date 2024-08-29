@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Counter from '$lib/components/Counter.svelte';
+	
 	import NavBar from '$lib/components/NavBar.svelte';
 
 	const onclick = () => {
@@ -51,6 +52,7 @@
     &copy; 2024 Gestionale Personale di Porru Andrea. Tutti i diritti riservati.
 </div>
 </div>
+
 
     
 <style>

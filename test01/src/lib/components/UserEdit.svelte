@@ -99,7 +99,7 @@
 <br />
 
 <div class="container">
-	<h1>Login</h1>
+	<h1>Registrati</h1>
 	<label for="IDuser">ID*</label>
 	<input
 		type="number"
@@ -133,13 +133,7 @@
 	/>
 
 	<label for="indirizzo">indirizzo</label>
-	<input
-		type="text"
-		id="indirizzo"
-		name="indirizzo"
-		style="box-shadow: {sw_cid == 1 ? '0 0 15px red' : 'none'}"
-		bind:value={storeUser.indirizzo}
-	/>
+	<input type="text" id="indirizzo" name="indirizzo" bind:value={storeUser.indirizzo}/>
 
 	<label for="password">password</label>
 	<input type="password" id="password" name="password" bind:value={storeUser.password} />
@@ -155,7 +149,9 @@
 		bind:value={password}
 	/>
 
+
 	{#if storeUser.password && password && storeUser.password !== password}
+	<br><br>
 		<p>Le passwod non corrispondono</p>
 	{/if}
 
@@ -180,9 +176,9 @@
 	</div>
 {/if}
 
-<pre>
+<!-- <pre>
 {JSON.stringify(storeUser, null, 2)}
-</pre>
+</pre> -->
 
 <style>
 	p {
@@ -199,7 +195,7 @@
 		background: white;
 		padding: 20px;
 		border-radius: 10px;
-		box-shadow: 0 0 10px rgba(255, 2, 2, 0.7);
+		box-shadow: 0 0 10px rgba(255, 2, 2, 0.3);
 		background-color: #ec13133d;
 	}
 
@@ -218,6 +214,7 @@
 	}
 
 	button:hover {
+		transition: all 0.5s ease-in-out;
 		background: linear-gradient(45deg, rgb(4, 161, 96), blueviolet);
 		transform: translateY(-5px);
 	}
@@ -226,6 +223,7 @@
 		box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 	}
 	.container {
+	
 		font-family: Arial, sans-serif;
 		max-width: 400px;
 		margin: 0 auto;
@@ -253,9 +251,10 @@
 	input[type='number'],
 	input[type='mail'],
 	input[type='password'] {
+		height: 30px;
 		width: 100%;
-		padding: 10px;
-		margin: 5px 0 20px;
+		padding: 5px;
+		margin: 5px 0 5px;
 		border: 1px solid #ccc;
 		border-radius: 5px;
 		box-sizing: border-box;

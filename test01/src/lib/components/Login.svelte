@@ -10,6 +10,7 @@
 	let sw = 0;
 	let sw_id = 0;
 	$: sw_id = id === null ? 0 : sw_id;
+	$: sw = password === '' || id===null ? 0 : sw;
 
 	let firstpassword: string;
 	const onclick = () => {
@@ -101,6 +102,7 @@
 		margin-top: -10px;
 	}
 	a:hover {
+		transition: all 0.3s ease-in-out;
 		font-size: larger;
 	}
 	p.errato {
@@ -110,6 +112,7 @@
 	}
 
 	button {
+		transition: all 0.5s ease-in-out;
 		background: linear-gradient(45deg, blueviolet, rgb(4, 161, 96));
 
 		font-family: 'Comic Sans MS', cursive;
@@ -151,7 +154,7 @@
 		background: white;
 		padding: 20px;
 		border-radius: 10px;
-		box-shadow: 0 0 10px rgba(255, 2, 2, 0.7);
+		box-shadow: 0 0 10px rgba(255, 2, 2, 0.3);
 		background-color: #ec13133d;
 	}
 
