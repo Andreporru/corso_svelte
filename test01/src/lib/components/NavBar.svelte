@@ -17,7 +17,6 @@
 	</div>
 	<Avatar />
 	<Ibatar />
-	
 </div>
 
 <style>
@@ -28,21 +27,19 @@
 		color: white;
 		justify-content: space-between;
 		padding: 10px;
-		
+
 		font-size: 20px;
 
 		a {
 			color: white;
 			text-decoration: none;
-			
-
 		}
 
 		/*	a:hover {
 			text-decoration: underline;
 		}*/
 	}
-	a:hover{
+	a:hover {
 		font-size: larger;
 	}
 	.links {

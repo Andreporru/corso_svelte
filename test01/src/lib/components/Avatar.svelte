@@ -4,25 +4,6 @@
 	import { ibanUser } from '$lib/stores/iban.svelte';
 
 	const login = () => {
-		// const savedId = localStorage.getItem('id');
-		// const savedName = localStorage.getItem('name');
-		// const savedMail = localStorage.getItem('mail');
-
-
-		// const savedIban = localStorage.getItem('iban');
-		// if(savedIban){
-		// 	ibanUser.iban= savedIban;
-		// }
-
-		// if (savedId) {
-		// 	storeUser.id = parseInt(savedId, 10); // Convertire la stringa in numero
-		// }
-		// if (savedName) {
-		// 	storeUser.name = savedName; // Nessun JSON.parse necessario per le stringhe
-		// }
-		// if (savedMail) {
-		// 	storeUser.mail = savedMail; // Nessun JSON.parse necessario per le stringhe
-		// }
 		goto('/login');
 	};
 
@@ -31,7 +12,7 @@
 		storeUser.name = '';
 		storeUser.mail = '';
 		ibanUser.iban = '';
-		storeUser.isLogged='false';
+		storeUser.isLogged = 'false';
 	};
 
 	const vai = () => {
@@ -40,7 +21,7 @@
 </script>
 
 <div class="container">
-	{#if storeUser.isLogged=="true"}
+	{#if storeUser.isLogged == 'true'}
 		<p>Benvenuto {storeUser.name}!</p>
 		<button class="auth-button" on:click={logout}>Logout</button>
 	{:else}
@@ -64,7 +45,9 @@
 		border-radius: 5px;
 		font-family: 'Comic Sans MS', cursive;
 		cursor: pointer;
-		transition: background-color 0.3s, color 0.3s;
+		transition:
+			background-color 0.3s,
+			color 0.3s;
 	}
 
 	.auth-button:hover {

@@ -1,61 +1,72 @@
 <script lang="ts">
-	import { ibanUser } from "$lib/stores/iban.svelte";
-    import { storeUser } from "$lib/stores/user.svelte";
-    let sw:number = $state(0);
-    const onclick= () =>{
-        sw = 1;
-
-    }
-    const ondblclick = () =>{
-        sw = 0;
-    }
+	import { ibanUser } from '$lib/stores/iban.svelte';
+	import { storeUser } from '$lib/stores/user.svelte';
+	let sw: number = $state(0);
+	const onclick = () => {
+		sw = 1;
+	};
+	const ondblclick = () => {
+		sw = 0;
+	};
 </script>
-<br><br>
+
+<br /><br />
 <div class="container">
-{#if storeUser.id>0}
-    <h1>Dati Utente</h1>
-    {#if sw==0}
-    <!-- svelte-ignore a11y_click_events_have_key_events -->
-    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-    <p class="dato" {onclick}>id: {storeUser.id}</p>
-    <!-- svelte-ignore a11y_click_events_have_key_events -->
-    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-    <p class="dato"{onclick}>nome: {storeUser.name}</p>
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-	<p class="dato"{onclick}>mail: {storeUser.mail}</p>
+	{#if storeUser.id > 0}
+		<h1>Dati Utente</h1>
+		{#if sw == 0}
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+			<p class="dato" {onclick}>id: {storeUser.id}</p>
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+			<p class="dato" {onclick}>nome: {storeUser.name}</p>
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+			<p class="dato" {onclick}>mail: {storeUser.mail}</p>
 
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-	<p class="dato"{onclick}>iban: {ibanUser.iban}</p>
-    
-    {:else}   
-    <label for="id">inserisci id</label>
-    <input {ondblclick} type="number" id="id" name="id" bind:value={storeUser.id}>
-    <label for="nome">inserisci nome</label>
-    <input {ondblclick} type="text" id="nome" name="nome" bind:value={storeUser.name}>
-    <label for="email">inserisci email</label>
-    <input {ondblclick} type="mail" id="email" name="email" bind:value={storeUser.mail}>
-	<label for="iban">inserisci iban</label>
-	<input {ondblclick} type="text" id="iban" name="iban" bind:value={ibanUser.iban}>
-    {/if} 
-{:else}
-	<h1 class="error">ERRORE</h1>
-	<p class="error">Non è possibile visualizzare e/o inserire i dati  perché l'utente non ha effettuato il login</p>
-{/if}
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+			<p class="dato" {onclick}>indirizzo: {storeUser.indirizzo}</p>
 
-
-
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+			<p class="dato" {onclick}>iban: {ibanUser.iban}</p>
+		{:else}
+			<label for="id">inserisci id</label>
+			<input {ondblclick} type="number" id="id" name="id" bind:value={storeUser.id} />
+			<label for="nome">inserisci nome</label>
+			<input {ondblclick} type="text" id="nome" name="nome" bind:value={storeUser.name} />
+			<label for="email">inserisci email</label>
+			<input {ondblclick} type="mail" id="email" name="email" bind:value={storeUser.mail} />
+			<label for="indirizzo">indirizzo</label>
+			<input
+				{ondblclick}
+				type="text"
+				id="indirizzo"
+				name="idirizzo"
+				bind:value={storeUser.indirizzo}
+			/>
+			<label for="iban">inserisci iban</label>
+			<input {ondblclick} type="text" id="iban" name="iban" bind:value={ibanUser.iban} />
+		{/if}
+	{:else}
+		<h1 class="error">ERRORE</h1>
+		<p class="error">
+			Non è possibile visualizzare e/o inserire i dati perché l'utente non ha effettuato il login
+		</p>
+	{/if}
 </div>
+
 <style>
-	  .error::-moz-progress-bar {
-        font-size: 18px;
-    }
-    .error {
-        color: red;
-        text-align: center;
-    }
-	
+	.error::-moz-progress-bar {
+		font-size: 18px;
+	}
+	.error {
+		color: red;
+		text-align: center;
+	}
+
 	.container {
 		font-family: Arial, sans-serif;
 		max-width: 400px;
@@ -66,7 +77,6 @@
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		background-color: #f4f4f9;
 	}
-	
 
 	h1 {
 		color: blueviolet;
@@ -91,18 +101,17 @@
 		border-radius: 5px;
 		box-sizing: border-box;
 	}
-    p{
-        display: block;
-		margin: 10px 0 5px;
-	/*	font-weight: bold;*/
-    }
-	.dato{
+	p {
 		display: block;
 		margin: 10px 0 5px;
-	 	font-weight: bold;
+		/*	font-weight: bold;*/
 	}
-	.dato:hover{
-		transform:translateY(-4px);
+	.dato {
+		display: block;
+		margin: 10px 0 5px;
+		font-weight: bold;
 	}
-
+	.dato:hover {
+		transform: translateY(-4px);
+	}
 </style>

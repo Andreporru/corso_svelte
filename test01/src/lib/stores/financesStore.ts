@@ -1,7 +1,5 @@
-// src/stores/financesStore.ts
 import { writable } from 'svelte/store';
 import { storeUser } from './user.svelte';
-
 
 // Tipo per una spesa
 interface Expense {
@@ -15,15 +13,19 @@ export const financesStore = (() => {
 
     // Carica le spese dal localStorage
     const loadExpenses = () => {
-        const savedExpenses = localStorage.getItem(`expenses_${storeUser.id}`);
-        if (savedExpenses) {
-            set(JSON.parse(savedExpenses));
+        if (storeUser.id > 0) {
+            const savedExpenses = localStorage.getItem(`expenses_${storeUser.id}`);
+            if (savedExpenses) {
+                set(JSON.parse(savedExpenses));
+            }
         }
     };
 
     // Salva le spese nel localStorage
     const saveExpenses = (expenses: Expense[]) => {
-        localStorage.setItem(`expenses_${storeUser.id}`, JSON.stringify(expenses));
+        if (storeUser.id > 0) {
+            localStorage.setItem(`expenses_${storeUser.id}`, JSON.stringify(expenses));
+        }
     };
 
     // Aggiunge una nuova spesa
@@ -44,16 +46,16 @@ export const financesStore = (() => {
         });
     };
 
-    // Inizializza caricando le spese esistenti
-  
+    const resetExpenses = () => {
+        set([]);
 
-        
+    };
 
-
-    loadExpenses();
     return {
         subscribe,
+        loadExpenses, // Rendi questa funzione accessibile
         addExpense,
-        removeExpense
+        removeExpense,
+        resetExpenses
     };
 })();
