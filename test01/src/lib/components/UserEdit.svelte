@@ -22,6 +22,7 @@
 	$: sw_cn = storeUser.name !== '' ? 0 : sw_cn;
 	$: sw_cm = storeUser.mail !== '' ? 0 : sw_cm;
 	$: sw_cid = storeUser.id !== null ? 0 : sw_cid;
+	$: sw_id = storeUser.id===null ? 0 : sw_id;
 
 	const clean = () => {
 		storeUser.name = '';
@@ -110,6 +111,7 @@
 	/>
 	{#if sw_id === 1}
 		<br />
+		<br/>
 		<p>ID esistente</p>
 	{/if}
 
@@ -199,29 +201,37 @@
 		background-color: #ec13133d;
 	}
 
+	
 	button {
-		transition: all 0.5s ease-in-out;
-		background: linear-gradient(45deg, blueviolet, rgb(4, 161, 96));
-		color: white;
 		padding: 15px 20px;
-		border: none;
-		border-radius: 5px;
-		cursor: pointer;
-		font-size: 18px;
 		margin-top: 20px;
 		display: block;
 		width: 100%;
+		border-radius: 5px;
+		background-color: white;
+		border-color: blueviolet;
+		border:none;
+		color:blueviolet;
+		font-size: 1.25rem;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		background-image: linear-gradient(45deg, blueviolet 50%, transparent 50%);
+		background-position: 100%;
+		background-size: 400%;
+		transition: background 500ms ease-in-out;		
 	}
 
 	button:hover {
-		transition: all 0.5s ease-in-out;
-		background: linear-gradient(45deg, rgb(4, 161, 96), blueviolet);
-		transform: translateY(-5px);
+		box-shadow:  0 0 10px rgba(55, 1, 92, 1);
+		transition: all 300ms ease-in-out;
+		transform:translateY(-8px);
+		background-position: 0;
+		color:white;
 	}
-	button:focus {
-		outline: none;
-		box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+	button:active{
+		transform:translateY(2px);
 	}
+
+	
 	.container {
 	
 		font-family: Arial, sans-serif;

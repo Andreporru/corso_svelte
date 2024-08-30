@@ -1,20 +1,20 @@
 export type Iban = {
     st: string;
-    cineu: number;
+    cineu: unknown;
     cin: string;
-    abi: number;
-    cab: number;
-    nconto: number;
+    abi: unknown;
+    cab: unknown;
+    nconto: unknown;
     iban: string;
 }
 
 export const ibanUser: Iban = $state({
-    st: "IT",
-    cineu: 0,
-    cin: " ",
-    abi: 0,
-    cab: 0,
-    nconto: 0,
-    iban:" ",
+    st: 'IT',
+    cineu: null,
+    cin: '',
+    abi: null,
+    cab: null,
+    nconto: null,
+    iban:'',
 
 })

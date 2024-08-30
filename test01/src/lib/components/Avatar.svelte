@@ -8,7 +8,7 @@
 	};
 
 	const logout = () => {
-		storeUser.id = 0;
+		storeUser.id = null;
 		storeUser.name = '';
 		storeUser.mail = '';
 		ibanUser.iban = '';

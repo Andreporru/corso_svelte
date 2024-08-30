@@ -3,6 +3,7 @@
 	import Counter from '$lib/components/Counter.svelte';
 	
 	import NavBar from '$lib/components/NavBar.svelte';
+	import { fade, fly } from 'svelte/transition';
 
 	const onclick = () => {
 		console.log('=== clicked');
@@ -23,25 +24,25 @@
 
     <div class="section">
         <h2>Sezioni principali</h2>
-        <div class="cards">
+        <div in:fly={{ y: 200, duration: 2000 }} out:fade class="cards">
             <div class="card">
                 <h3>Attività</h3>
                 <p>Gestisci le tue attività giornaliere e pianifica il tuo lavoro.</p>
                 <a href="/activities">Vai alle attività</a>
             </div>
-            <div class="card">
+            <div  in:fly={{ y: 200, duration: 2000 }} out:fade class="card">
                 <h3>login</h3>  
                 <p>Effettu il login per avere dati e opzioni personalizzate!</p>
                 <a href="/login">Vai al login</a>
             </div>
-            <div class="card">
+            <div in:fly={{ y: 200, duration: 2000 }} out:fade class="card">
                 <h3>calcolatrice</h3>
                 <p>I tuoi calcoli  sempre a portatra di mano.</p>
                 <a href="/calcula">Vai alla calcolatrice</a>
             </div>
-            <div class="card">
+            <div  in:fly={{ y: 200, duration: 2000 }} out:fade class="card">
                 <h3>iban</h3>
-                <p>componi il tuoi iban per averlo sempre con te</p>
+                	<p>componi il tuoi iban per averlo sempre con te</p>
                 <a href="/iban-edit">Vai al tuo iban</a>
             </div>
         </div>

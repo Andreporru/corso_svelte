@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { storeUser } from '$lib/stores/user.svelte';
 	import { writable } from 'svelte/store';
+	import { fade, fly } from 'svelte/transition';
 
 	// Store per gestire le attività dell'utente corrente
 	export const userActivities = writable<{ nome: string; completata: boolean }[]>([]);
@@ -68,7 +69,7 @@
 </script>
 
 <div class="container" style="margin-top:50px;">
-	{#if storeUser.id > 0}
+	{#if storeUser.id != null}
 		<label for="frase">Nuova attività</label>
 		<input type="text" id="frase" name="frase" bind:value={frase} />
 		<button class="agg" on:click={aggiungi}>Aggiungi</button>
@@ -78,7 +79,7 @@
 				{#if index == 0}
 					<br />
 				{/if}
-				<li>
+				<li in:fly={{ y: 200, duration: 1000 }} out:fade>
 					<input
 						type="checkbox"
 						checked={attività.completata}

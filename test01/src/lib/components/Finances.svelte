@@ -7,7 +7,7 @@
 	let amount: number | null = null;
 
 	const loadExpenses = () => {
-		if (storeUser.id > 0) {
+		if (storeUser.id != null) {
 			financesStore.resetExpenses();
 			financesStore.loadExpenses(); // Chiama la funzione loadExpenses direttamente dal store
 		}
@@ -34,7 +34,7 @@
 
 <!-- Interfaccia utente -->
 <div class="container" style="margin-top:100px;">
-	{#if storeUser.id > 0}
+	{#if storeUser.id != null}
 		<h1>Gestione Finanze</h1>
 
 		<div class="input-group">

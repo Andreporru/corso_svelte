@@ -7,12 +7,44 @@
 	};
 	const ondblclick = () => {
 		sw = 0;
+		const {  name, mail, password, indirizzo } = storeUser;	
+		const iban=ibanUser.iban;
+		localStorage.setItem(`nome_${storeUser.id}`, name);
+	
+		localStorage.setItem(`mail_${storeUser.id}`, mail);
+	
+		localStorage.setItem(`indirizzo_${storeUser.id}`, indirizzo);
+		localStorage.setItem(`iban_${storeUser.id}`,iban);
+
+		const savedName=localStorage.getItem(`nome_${storeUser.id}`);
+		const savedMail=localStorage.getItem(`mail_${storeUser.id}`);
+		const savedIndirizzo=localStorage.getItem(`indirizzo_${storeUser.id}`);
+		const savedIban=localStorage.getItem(`iban_${storeUser.id}`);
+
+		if(savedName)
+		{
+			storeUser.name=savedName;
+		}
+		if(savedMail)
+		{
+			storeUser.mail=savedMail;
+		}
+		if(savedIndirizzo)
+		{
+			storeUser.indirizzo=savedIndirizzo;
+		}
+		if(savedIban)
+		{
+			ibanUser.iban=savedIban;
+		}
+	
+	
 	};
 </script>
 
 <br /><br />
 <div class="container">
-	{#if storeUser.id > 0}
+	{#if storeUser.id != null}
 		<h1>Dati Utente</h1>
 		{#if sw == 0}
 			<!-- svelte-ignore a11y_click_events_have_key_events -->

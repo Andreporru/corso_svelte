@@ -1,5 +1,5 @@
 export type User = {
-    id: number;
+    id: unknown;
     name: string;
     mail: string;
     password: string;
@@ -8,7 +8,7 @@ export type User = {
 };
 
 export const storeUser: User = $state({
-    id: 0,
+    id: null,
     name: "",
     mail: "",
     password: "",

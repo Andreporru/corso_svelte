@@ -13,7 +13,7 @@
 <!-- svelte-ignore css_unused_selector -->
 <br /><br />
 <div class="container">
-	{#if storeUser.id > 0}
+	 {#if storeUser.id != null}
 		<h1>Inserisci iban</h1>
 		<div class="primary">
 			<label for="cineu">CEU</label>
@@ -33,7 +33,7 @@
 				type="text"
 				id="cin"
 				name="cin"
-				maxlength="2"
+				maxlength="1"
 				bind:value={ibanUser.cin}
 				placeholder="1 carattere"
 			/>
