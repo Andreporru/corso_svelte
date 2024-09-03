@@ -5,15 +5,17 @@
 	import { fade, fly } from 'svelte/transition';
 
 	// Store per gestire le attività dell'utente corrente
-	export const userActivities = writable<{ nome: string; completata: boolean }[]>([]);
+	export const userActivities = writable<{ nome: string; data: string; completata: boolean }[]>([]);
 
 	// Definisce un tipo per le attività
 	interface Attivita {
 		nome: string;
+		data: string;
 		completata: boolean;
 	}
 
 	let frase: string = '';
+	let data: string = '';
 
 	// Carica le attività dal localStorage
 	const loadAttivita = () => {
@@ -32,13 +34,14 @@
 
 	// Aggiunge una nuova attività
 	const aggiungi = () => {
-		if (frase.trim() !== '') {
+		if (frase.trim() !== '' && data !== '') {
 			userActivities.update((current) => {
-				const newAttivita = [...current, { nome: frase, completata: false }];
+				const newAttivita = [...current, { nome: frase, data, completata: false }];
 				saveAttivita(newAttivita);
 				return newAttivita;
 			});
 			frase = ''; // pulisce il campo di input dopo l'aggiunta
+			data = ''; // pulisce il campo di input data dopo l'aggiunta
 		}
 	};
 
@@ -67,11 +70,13 @@
 		loadAttivita();
 	});
 </script>
-
-<div class="container" style="margin-top:50px;">
-	{#if storeUser.id != null}
+<br /><br />
+<div class="container" >
+	{#if storeUser.id != ""}
 		<label for="frase">Nuova attività</label>
-		<input type="text" id="frase" name="frase" bind:value={frase} />
+		<input type="text" id="frase" name="frase" bind:value={frase} placeholder="Descrizione attività" />
+		<input type="date" id="data" name="data" bind:value={data} placeholder="Data attività"/>
+
 		<button class="agg" on:click={aggiungi}>Aggiungi</button>
 		<br />
 		<ul>
@@ -85,7 +90,9 @@
 						checked={attività.completata}
 						on:change={() => toggleCompletata(index)}
 					/>
-					<span class:completata={attività.completata}>{attività.nome}</span>
+					<span class:completata={attività.completata}>
+						{attività.nome} | {attività.data}
+					</span>
 					<button class="annulla" on:click={() => elimina(index)}>Elimina</button>
 				</li>
 			{/each}
@@ -121,7 +128,7 @@
 		background: white;
 		padding: 20px;
 		border-radius: 10px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 		background-color: #f4f4f9;
 	}
 
@@ -133,7 +140,8 @@
 		font-weight: bold;
 	}
 
-	input[type='text'] {
+	input[type='text'],
+	input[type='date'] {
 		width: 100%;
 		padding: 10px;
 		margin: 5px 0 20px;
@@ -154,6 +162,9 @@
 
 	.agg:hover {
 		background-color: rgb(78, 0, 78);
+	}
+	.agg:active{
+		transform:translateY(2px);
 	}
 
 	ul {

@@ -32,7 +32,7 @@
             </div>
             <div  in:fly={{ y: 200, duration: 2000 }} out:fade class="card">
                 <h3>login</h3>  
-                <p>Effettu il login per avere dati e opzioni personalizzate!</p>
+                <p>Effettua il login per avere dati e opzioni personalizzate!</p>
                 <a href="/login">Vai al login</a>
             </div>
             <div in:fly={{ y: 200, duration: 2000 }} out:fade class="card">
@@ -41,9 +41,9 @@
                 <a href="/calcula">Vai alla calcolatrice</a>
             </div>
             <div  in:fly={{ y: 200, duration: 2000 }} out:fade class="card">
-                <h3>iban</h3>
-                	<p>componi il tuoi iban per averlo sempre con te</p>
-                <a href="/iban-edit">Vai al tuo iban</a>
+                <h3>Finanze</h3>
+                	<p>tieni traccia delle tue spese.</p>
+                <a href="/finances">Vai alle finanze</a>
             </div>
         </div>
     </div>

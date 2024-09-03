@@ -5,9 +5,9 @@
 </script>
 
 <div class="container">
-	{#if ibanUser.iban != ' '}
+	{#if ibanUser.iban != ''}
 		iban:{ibanUser.iban}
-	{:else if storeUser.id != 0}
+	{:else if storeUser.id != null}
 		iban inesistente
 	{/if}
 </div>

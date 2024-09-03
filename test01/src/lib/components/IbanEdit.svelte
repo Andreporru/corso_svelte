@@ -6,14 +6,14 @@
 		ibanUser.iban =
 			ibanUser.st + ibanUser.cineu + ibanUser.cin + ibanUser.abi + ibanUser.cab + ibanUser.nconto;
 		const loadIban = ibanUser.iban;
-		localStorage.setItem(`iban_${storeUser.id}`, JSON.stringify(loadIban));
+		localStorage.setItem(`iban_${storeUser.id}`, loadIban);
 	};
 </script>
 
 <!-- svelte-ignore css_unused_selector -->
 <br /><br />
 <div class="container">
-	 {#if storeUser.id != null}
+	 {#if storeUser.id != ""}
 		<h1>Inserisci iban</h1>
 		<div class="primary">
 			<label for="cineu">CEU</label>
@@ -73,7 +73,7 @@
 		background: white;
 		padding: 20px;
 		border-radius: 10px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 		background-color: #f4f4f9;
 	}
 /* 
@@ -98,35 +98,39 @@
 	input[type='number'] {
 		width: 100%;
 		padding: 10px;
-		margin: 5px 0 20px;
+		margin: 5px 0 15px;
 		border: 1px solid #ccc;
 		border-radius: 5px;
 		box-sizing: border-box;
 	}
 
 	button {
-		background: linear-gradient(45deg, blueviolet, rgb(4, 161, 96));
-
-		font-family: 'Comic Sans MS', cursive;
-		color: white;
 		padding: 15px 20px;
-		border: none;
-		border-radius: 5px;
-		cursor: pointer;
-		font-size: 16px;
 		margin-top: 20px;
 		display: block;
 		width: 100%;
+		border-radius: 5px;
+		background-color: white;
+		border-color: blueviolet;
+		border:none;
+		color:blueviolet;
+		font-size: 1.25rem;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		background-image: linear-gradient(45deg, blueviolet 50%, transparent 50%);
+		background-position: 100%;
+		background-size: 400%;
+		transition: background 500ms ease-in-out;	
 	}
 
 	button:hover {
-		transition: all 0.5s ease-in-out;
-		background: linear-gradient(45deg, rgb(4, 161, 96), blueviolet);
-		transform: translateY(-5px);
+		box-shadow:  0 0 10px rgba(55, 1, 92, 1);
+		transition: all 300ms ease-in-out;
+		transform:translateY(-8px);
+		background-position: 0;
+		color:white;
 	}
-	button:focus {
-		outline: none;
-		box-shadow: 0 0 0 3px rgba(21, 1, 29, 0.3);
+	button:active{
+		transform:translatey(2px);
 	}
 
 	.result {

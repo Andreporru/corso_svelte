@@ -7,25 +7,24 @@
 	let ora: number;
 	let minuti: number;
 	let secondi: number;
-	let millisecondi: number; // Cambiato il nome da millesimi a millisecondi
+	let millisecondi: number;
 
 	const updateTime = () => {
 		const date = new Date();
 		ora = date.getHours();
 		minuti = date.getMinutes();
 		secondi = date.getSeconds();
-		millisecondi = Math.floor(date.getMilliseconds() / 10); // Converte millisecondi in decimi di secondo
+		millisecondi = Math.floor(date.getMilliseconds() / 10); 
 	};
-
 	let timer: number;
 
 	onMount(() => {
-		updateTime(); // Imposta subito l'orario iniziale
-		timer = setInterval(updateTime, 10); // Aggiorna ogni 10 millisecondi
+		updateTime(); 
+		timer = setInterval(updateTime, 10);
 	});
 
 	onDestroy(() => {
-		clearInterval(timer); // Pulisce l'intervallo quando il componente viene distrutto
+		clearInterval(timer); 
 	});
 </script>
 
@@ -41,13 +40,16 @@
 		<a href="/calcula">Calcolatrice</a>
 		<a href="/calendario">Calendario</a>
 	</div>
-	<div class="clock">{ora}:{minuti < 10 ? '0' : ''}{minuti}:{secondi < 10 ? '0' : ''}{secondi}:{millisecondi < 10 ? '0' : ''}{millisecondi}</div>
+	<div class="clock">{ora}:{minuti < 10 ? '0' : ''}{minuti}:{secondi < 10 ? '0' : ''}{secondi}<!---:{millisecondi < 10 ? '0' : ''}{millisecondi}--></div>
 	<Avatar />
-	<Ibatar />
+	<!-- <Ibatar /> -->
 </div>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=DS+digital&dig=swap');
+	@font-face{
+	font-family:'digital-clock-font';
+	src: 'C:\Users\stagecl5\Desktop\corso_svelte\digital-7.ttf';
+	}
 	.navbar {
 		display: flex;
 		flex-direction: row;
@@ -59,7 +61,7 @@
 		font-size: 20px;
 	}
 	.clock {
-		font-family:'Ds-digital', monospace;
+		font-family:'digital-clock-font', monospacecd;
 	}
 
 	a {

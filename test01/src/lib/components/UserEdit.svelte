@@ -82,10 +82,10 @@
 		}
 
 		if (sw_p === 0 && sw_id === 0 && sw_c === 0) {
-			storeUser.isLogged = 'true';
+			storeUser.isLogged = 'true'; 
 			const { id, name, mail, password, indirizzo } = storeUser;
 			localStorage.setItem(`nome_${storeUser.id}`, name);
-			localStorage.setItem(`id_${storeUser.id}`, id.toString());
+			localStorage.setItem(`id_${storeUser.id}`, id);
 			localStorage.setItem(`mail_${storeUser.id}`, mail);
 			localStorage.setItem(`password_${storeUser.id}`, password);
 			localStorage.setItem(`indirizzo_${storeUser.indirizzo}`, indirizzo);

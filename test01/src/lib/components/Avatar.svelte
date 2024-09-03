@@ -8,7 +8,7 @@
 	};
 
 	const logout = () => {
-		storeUser.id = null;
+		storeUser.id = '';
 		storeUser.name = '';
 		storeUser.mail = '';
 		ibanUser.iban = '';
@@ -43,7 +43,7 @@
 		border: 2px solid blueviolet;
 		padding: 5px 10px;
 		border-radius: 5px;
-		font-family: 'Comic Sans MS', cursive;
+	
 		cursor: pointer;
 		transition:
 			background-color 0.3s,

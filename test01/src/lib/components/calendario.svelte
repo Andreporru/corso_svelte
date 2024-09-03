@@ -15,7 +15,7 @@
       // Aggiungi i giorni vuoti per allineare il primo giorno del mese
       const indicePrimoGiorno = (data.getDay() + 6) % 7; // Calcola l'indice del primo giorno (Lun = 0)
       for (let i = 0; i < indicePrimoGiorno; i++) {
-        giorni.push(null);
+        giorni.push(0);
       }
   
       // Aggiungi i giorni del mese

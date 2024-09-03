@@ -33,8 +33,9 @@
 </script>
 
 <!-- Interfaccia utente -->
-<div class="container" style="margin-top:100px;">
-	{#if storeUser.id != null}
+ <br><br>
+<div class="container" >
+	{#if storeUser.id != ""}
 		<h1>Gestione Finanze</h1>
 
 		<div class="input-group">
@@ -75,7 +76,7 @@
 		padding: 20px;
 		background-color: #f4f4f9;
 		border-radius: 10px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	}
 
 	h1 {

@@ -13,7 +13,7 @@ export const financesStore = (() => {
 
     // Carica le spese dal localStorage
     const loadExpenses = () => {
-        if (storeUser.id > 0) {
+        if (storeUser.id !=null) {
             const savedExpenses = localStorage.getItem(`expenses_${storeUser.id}`);
             if (savedExpenses) {
                 set(JSON.parse(savedExpenses));
@@ -23,7 +23,7 @@ export const financesStore = (() => {
 
     // Salva le spese nel localStorage
     const saveExpenses = (expenses: Expense[]) => {
-        if (storeUser.id > 0) {
+        if (storeUser.id !=null) {
             localStorage.setItem(`expenses_${storeUser.id}`, JSON.stringify(expenses));
         }
     };

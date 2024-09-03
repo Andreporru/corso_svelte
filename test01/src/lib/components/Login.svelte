@@ -43,7 +43,7 @@
 					ibanUser.iban = savediban;
 				}
 
-				storeUser.id = Number(savedId);
+				storeUser.id = savedId;
 			} else {
 				sw = 3;
 			}
@@ -86,9 +86,9 @@
 	</div>
 {/if}
 
-<!-- <pre>
+<pre>
 {JSON.stringify(storeUser, null, 2)}
-</pre> -->
+</pre>
 
 <style>
 	p {

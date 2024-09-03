@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { ibanUser } from '$lib/stores/iban.svelte';
 	import { storeUser } from '$lib/stores/user.svelte';
 	let sw: number = $state(0);
@@ -40,11 +41,15 @@
 	
 	
 	};
+	const cambiap = () =>{
+		goto('/cambia-password');
+	};
+
 </script>
 
 <br /><br />
 <div class="container">
-	{#if storeUser.id != null}
+	{#if storeUser.id != ''}
 		<h1>Dati Utente</h1>
 		{#if sw == 0}
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -64,6 +69,8 @@
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 			<p class="dato" {onclick}>iban: {ibanUser.iban}</p>
+			<br>
+			<button onclick={cambiap}>cambia password</button>
 		{:else}
 			<label for="id">inserisci id</label>
 			<input {ondblclick} type="number" id="id" name="id" bind:value={storeUser.id} />
@@ -81,8 +88,10 @@
 			/>
 			<label for="iban">inserisci iban</label>
 			<input {ondblclick} type="text" id="iban" name="iban" bind:value={ibanUser.iban} />
+			<br>
+			<button onclick={cambiap}>cambia password</button>
 		{/if}
-	{:else}
+	{:else}	
 		<h1 class="error">ERRORE</h1>
 		<p class="error">
 			Non è possibile visualizzare e/o inserire i dati perché l'utente non ha effettuato il login
@@ -106,7 +115,7 @@
 		background: white;
 		padding: 20px;
 		border-radius: 10px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 		background-color: #f4f4f9;
 	}
 
