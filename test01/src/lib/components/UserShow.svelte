@@ -2,9 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { ibanUser } from '$lib/stores/iban.svelte';
 	import { storeUser } from '$lib/stores/user.svelte';
-	import * as fs from 'fs';
-	import { draw } from 'svelte/transition';
-	import Layout from '../../routes/+layout.svelte';
+
 
 	const percorso = './dati.txt';
 

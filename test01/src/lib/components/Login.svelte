@@ -86,9 +86,9 @@
 	</div>
 {/if}
 
-<pre>
+<!-- <pre>
 {JSON.stringify(storeUser, null, 2)}
-</pre>
+</pre> -->
 
 <style>
 	p {
