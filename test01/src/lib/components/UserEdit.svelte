@@ -134,13 +134,13 @@
 		bind:value={storeUser.mail}
 	/>
 
-	<label for="indirizzo">indirizzo</label>
+	<label for="indirizzo">Indirizzo</label>
 	<input type="text" id="indirizzo" name="indirizzo" bind:value={storeUser.indirizzo}/>
 
-	<label for="password">password</label>
+	<label for="password">Password*</label>
 	<input type="password" id="password" name="password" bind:value={storeUser.password} />
 
-	<label for="confermaPassword">conferma password</label>
+	<label for="confermaPassword">Conferma password</label>
 	<input
 		type="password"
 		id="confermaPassword"

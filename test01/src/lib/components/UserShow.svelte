@@ -2,49 +2,65 @@
 	import { goto } from '$app/navigation';
 	import { ibanUser } from '$lib/stores/iban.svelte';
 	import { storeUser } from '$lib/stores/user.svelte';
+	import * as fs from 'fs';
+	import { draw } from 'svelte/transition';
+	import Layout from '../../routes/+layout.svelte';
+
+	const percorso = './dati.txt';
+
 	let sw: number = $state(0);
 	const onclick = () => {
 		sw = 1;
 	};
 	const ondblclick = () => {
 		sw = 0;
-		const {  name, mail, password, indirizzo } = storeUser;	
-		const iban=ibanUser.iban;
+		const { name, mail, password, indirizzo } = storeUser;
+		const iban = ibanUser.iban;
 		localStorage.setItem(`nome_${storeUser.id}`, name);
-	
+
 		localStorage.setItem(`mail_${storeUser.id}`, mail);
-	
+
 		localStorage.setItem(`indirizzo_${storeUser.id}`, indirizzo);
-		localStorage.setItem(`iban_${storeUser.id}`,iban);
+		localStorage.setItem(`iban_${storeUser.id}`, iban);
 
-		const savedName=localStorage.getItem(`nome_${storeUser.id}`);
-		const savedMail=localStorage.getItem(`mail_${storeUser.id}`);
-		const savedIndirizzo=localStorage.getItem(`indirizzo_${storeUser.id}`);
-		const savedIban=localStorage.getItem(`iban_${storeUser.id}`);
+		const savedName = localStorage.getItem(`nome_${storeUser.id}`);
+		const savedMail = localStorage.getItem(`mail_${storeUser.id}`);
+		const savedIndirizzo = localStorage.getItem(`indirizzo_${storeUser.id}`);
+		const savedIban = localStorage.getItem(`iban_${storeUser.id}`);
 
-		if(savedName)
-		{
-			storeUser.name=savedName;
+		if (savedName) {
+			storeUser.name = savedName;
 		}
-		if(savedMail)
-		{
-			storeUser.mail=savedMail;
+		if (savedMail) {
+			storeUser.mail = savedMail;
 		}
-		if(savedIndirizzo)
-		{
-			storeUser.indirizzo=savedIndirizzo;
+		if (savedIndirizzo) {
+			storeUser.indirizzo = savedIndirizzo;
 		}
-		if(savedIban)
-		{
-			ibanUser.iban=savedIban;
+		if (savedIban) {
+			ibanUser.iban = savedIban;
 		}
-	
-	
 	};
-	const cambiap = () =>{
+	const cambiap = () => {
 		goto('/cambia-password');
 	};
-
+	const convertiCsv = () => {
+		// Usa `get` per accedere ai dati non reattivi
+		const headers = 'id;nome;email;indirizzo;iban\n';
+		const row = `${storeUser.id};${storeUser.name};${storeUser.mail};${storeUser.indirizzo};${ibanUser.iban}\n`;
+		return headers + row;
+	};
+	const scaricaCsv = () => {
+		const csvData = convertiCsv();
+		const blob = new Blob([csvData], { type: 'text/csv' });
+		const url = URL.createObjectURL(blob);
+		const link = document.createElement('a');
+		link.href = url;
+		link.download = `${storeUser.name}_dati.csv`;
+		link.click();
+		console.log('fatto');
+		URL.revokeObjectURL(url); // Rilascia la memoria occupata dall'URL temporaneo
+	};
 </script>
 
 <br /><br />
@@ -69,8 +85,9 @@
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 			<p class="dato" {onclick}>iban: {ibanUser.iban}</p>
-			<br>
+			<br />
 			<button onclick={cambiap}>cambia password</button>
+			<button onclick={scaricaCsv}>estrai file csv</button>
 		{:else}
 			<label for="id">inserisci id</label>
 			<input {ondblclick} type="number" id="id" name="id" bind:value={storeUser.id} />
@@ -88,10 +105,11 @@
 			/>
 			<label for="iban">inserisci iban</label>
 			<input {ondblclick} type="text" id="iban" name="iban" bind:value={ibanUser.iban} />
-			<br>
+			<br />
 			<button onclick={cambiap}>cambia password</button>
+			<button onclick={scaricaCsv}>scrivi file txt</button>
 		{/if}
-	{:else}	
+	{:else}
 		<h1 class="error">ERRORE</h1>
 		<p class="error">
 			Non è possibile visualizzare e/o inserire i dati perché l'utente non ha effettuato il login
@@ -145,7 +163,6 @@
 	p {
 		display: block;
 		margin: 10px 0 5px;
-		/*	font-weight: bold;*/
 	}
 	.dato {
 		display: block;

@@ -30,7 +30,7 @@ export const financesStore = (() => {
 
     // Aggiunge una nuova spesa
     const addExpense = (description: string, amount: number) => {
-        update(expenses => {
+        update((expenses: never) => {
             const newExpenses = [...expenses, { description, amount }];
             saveExpenses(newExpenses);
             return newExpenses;
@@ -39,8 +39,8 @@ export const financesStore = (() => {
 
     // Rimuove una spesa
     const removeExpense = (index: number) => {
-        update(expenses => {
-            const newExpenses = expenses.filter((_, i) => i !== index);
+        update((expenses: never[]) => {
+            const newExpenses = expenses.filter((_: never, i: number) => i !== index);
             saveExpenses(newExpenses);
             return newExpenses;
         });
@@ -53,7 +53,7 @@ export const financesStore = (() => {
 
     return {
         subscribe,
-        loadExpenses, // Rendi questa funzione accessibile
+        loadExpenses,
         addExpense,
         removeExpense,
         resetExpenses

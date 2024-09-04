@@ -4,10 +4,8 @@
 	import { writable } from 'svelte/store';
 	import { fade, fly } from 'svelte/transition';
 
-	// Store per gestire le attività dell'utente corrente
 	export const userActivities = writable<{ nome: string; data: string; completata: boolean }[]>([]);
 
-	// Definisce un tipo per le attività
 	interface Attivita {
 		nome: string;
 		data: string;
@@ -17,7 +15,6 @@
 	let frase: string = '';
 	let data: string = '';
 
-	// Carica le attività dal localStorage
 	const loadAttivita = () => {
 		const savedAttivita = localStorage.getItem(`activities_${storeUser.id}`);
 		if (savedAttivita) {
@@ -27,12 +24,10 @@
 		}
 	};
 
-	// Salva le attività nel localStorage
 	const saveAttivita = (attivita: Attivita[]) => {
 		localStorage.setItem(`activities_${storeUser.id}`, JSON.stringify(attivita));
 	};
 
-	// Aggiunge una nuova attività
 	const aggiungi = () => {
 		if (frase.trim() !== '' && data !== '') {
 			userActivities.update((current) => {
@@ -40,12 +35,11 @@
 				saveAttivita(newAttivita);
 				return newAttivita;
 			});
-			frase = ''; // pulisce il campo di input dopo l'aggiunta
-			data = ''; // pulisce il campo di input data dopo l'aggiunta
+			frase = '';
+			data = '';
 		}
 	};
 
-	// Toglie o aggiunge la spunta all'attività
 	const toggleCompletata = (index: number) => {
 		userActivities.update((current) => {
 			const updatedAttivita = current.map((attività, i) =>
@@ -56,7 +50,6 @@
 		});
 	};
 
-	// Elimina un'attività
 	const elimina = (index: number) => {
 		userActivities.update((current) => {
 			const updatedAttivita = current.filter((_, i) => i !== index);
@@ -65,19 +58,54 @@
 		});
 	};
 
-	// Carica le attività quando il componente è montato
+	const convertiCsv = () => {
+		const headers = 'attivita;data;completata\n';
+		let rows = '';
+
+		const activities = $userActivities;
+
+		for (let i = 0; i < activities.length; i++) {
+			const activity = activities[i];
+			const row = `${activity.nome};${activity.data};${activity.completata ? 'SI' : 'NO'}\n`;
+			rows += row;
+		}
+
+		return headers + rows;
+	};
+
+	const scaricaCsv = () => {
+		const activities = $userActivities;
+		const csvData = convertiCsv();
+		const blob = new Blob([csvData], { type: 'text/csv' });
+		const url = URL.createObjectURL(blob);
+		const link = document.createElement('a');
+		link.href = url;
+		link.download = `${storeUser.name}_attivita(${activities.length}).csv`;
+		link.click();
+		console.log('fatto');
+		URL.revokeObjectURL(url);
+	};
+
 	onMount(() => {
 		loadAttivita();
 	});
 </script>
-<br /><br />
-<div class="container" >
-	{#if storeUser.id != ""}
-		<label for="frase">Nuova attività</label>
-		<input type="text" id="frase" name="frase" bind:value={frase} placeholder="Descrizione attività" />
-		<input type="date" id="data" name="data" bind:value={data} placeholder="Data attività"/>
 
-		<button class="agg" on:click={aggiungi}>Aggiungi</button>
+<br /><br />
+<div class="container">
+	{#if storeUser.id != ''}
+		<label for="frase">Nuova attività</label>
+		<input
+			type="text"
+			id="frase"
+			name="frase"
+			bind:value={frase}
+			placeholder="Descrizione attività"
+		/>
+		<input type="date" id="data" name="data" bind:value={data} placeholder="Data attività" />
+
+		<button class="agg" onclick={aggiungi}>Aggiungi</button>
+		<button class="agg" onclick={scaricaCsv}>estrai csv</button>
 		<br />
 		<ul>
 			{#each $userActivities as attività, index}
@@ -88,12 +116,12 @@
 					<input
 						type="checkbox"
 						checked={attività.completata}
-						on:change={() => toggleCompletata(index)}
+						onchange={() => toggleCompletata(index)}
 					/>
 					<span class:completata={attività.completata}>
 						{attività.nome} | {attività.data}
 					</span>
-					<button class="annulla" on:click={() => elimina(index)}>Elimina</button>
+					<button class="annulla" onclick={() => elimina(index)}>Elimina</button>
 				</li>
 			{/each}
 		</ul>
@@ -163,8 +191,8 @@
 	.agg:hover {
 		background-color: rgb(78, 0, 78);
 	}
-	.agg:active{
-		transform:translateY(2px);
+	.agg:active {
+		transform: translateY(2px);
 	}
 
 	ul {
@@ -181,7 +209,8 @@
 		align-items: center;
 	}
 	li:hover {
-		transform: translateY(-8px);
+		transition: all 0.3s ease-in-out;
+		transform: translateY(-5px);
 	}
 
 	input[type='checkbox'] {

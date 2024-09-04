@@ -42,7 +42,7 @@
             </div>
             <div  in:fly={{ y: 200, duration: 2000 }} out:fade class="card">
                 <h3>Finanze</h3>
-                	<p>tieni traccia delle tue spese.</p>
+                	<p>tieni traccia e gestisci le tue spese dove vuoi tu.</p>
                 <a href="/finances">Vai alle finanze</a>
             </div>
         </div>

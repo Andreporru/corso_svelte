@@ -27,28 +27,56 @@
 		financesStore.removeExpense(index);
 	};
 
+	const convertiCsv = () => {
+		const headers = 'SPESA;IMPORTO\n';
+		let rows = '';
+
+		const spese = $financesStore;
+
+		for (let i = 0; i < spese.length; i++) {
+			const finanze = spese[i];
+			const row = `${finanze.description};${finanze.amount}\n`;
+			rows += row;
+		}
+
+		return headers + rows;
+	};
+
+	const scaricaCsv = () => {
+		const spese = $financesStore;
+		const csvData = convertiCsv();
+		const blob = new Blob([csvData], { type: 'text/csv' });
+		const url = URL.createObjectURL(blob);
+		const link = document.createElement('a');
+		link.href = url;
+		link.download = `${storeUser.name}_spese(${spese.length}).csv`;
+		link.click();
+		console.log('fatto');
+		URL.revokeObjectURL(url);
+	};
+
 	onMount(() => {
 		loadExpenses();
 	});
 </script>
 
-<!-- Interfaccia utente -->
- <br><br>
-<div class="container" >
-	{#if storeUser.id != ""}
+<br /><br />
+<div class="container">
+	{#if storeUser.id != ''}
 		<h1>Gestione Finanze</h1>
 
 		<div class="input-group">
 			<input type="text" placeholder="Descrizione" bind:value={description} />
 			<input type="number" placeholder="Importo" bind:value={amount} />
-			<button on:click={addExpense}>Aggiungi Spesa</button>
+			<button onclick={addExpense}>Aggiungi Spesa</button>
+			<button onclick={scaricaCsv}>Estrai csv</button>
 		</div>
 
 		<ul>
 			{#each $financesStore as expense, index}
 				<li>
 					{expense.description} - {expense.amount.toFixed(2)}€
-					<button on:click={() => removeExpense(index)}>Rimuovi</button>
+					<button onclick={() => removeExpense(index)}>Rimuovi</button>
 				</li>
 			{/each}
 		</ul>
