@@ -16,7 +16,7 @@
 		secondi = date.getSeconds();
 		millisecondi = Math.floor(date.getMilliseconds() / 10); 
 	};
-	let timer: number;
+	let timer: any;
 
 	onMount(() => {
 		updateTime(); 
@@ -59,9 +59,13 @@
 		padding: 10px;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 		font-size: 20px;
+		position: relative;
 	}
-	.clock {
-		font-family:'digital-clock-font', monospacecd;
+
+	.clock {	
+		font-family:'digital-clock-font', monospacecd;				
+		/* position: absolute;
+		right: 600px; */
 	}
 
 	a {

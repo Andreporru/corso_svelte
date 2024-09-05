@@ -28,6 +28,9 @@
 				const savedname = localStorage.getItem(`nome_${id}`);
 				const savedmail = localStorage.getItem(`mail_${id}`);
 				const savedAdress = localStorage.getItem(`indirizzo_${id}`);
+				const savedSurname=localStorage.getItem(`surname_${id}`);
+				const savedDatan=localStorage.getItem(`datan_${id}`);
+				const savedLuogon=localStorage.getItem(`luogon_${id}`);
 				const savediban = localStorage.getItem(`iban_${id}`);
 				storeUser.isLogged = 'true';
 				if (savedname) {
@@ -41,6 +44,15 @@
 				}
 				if (savediban) {
 					ibanUser.iban = savediban;
+				}
+				if(savedSurname){
+					storeUser.surname=savedSurname;
+				}
+				if(savedDatan){
+					storeUser.datan=savedDatan;
+				}
+				if(savedLuogon){
+					storeUser.luogon=savedLuogon;
 				}
 
 				storeUser.id = savedId;
@@ -85,7 +97,9 @@
 		<a href="/user-edit"> Registrati</a>
 	</div>
 {/if}
-
+<div class="footer">
+    &copy; 2024 Gestionale Personale di Porru Andrea. Tutti i diritti riservati.
+</div>
 <!-- <pre>
 {JSON.stringify(storeUser, null, 2)}
 </pre> -->
@@ -128,6 +142,17 @@
 		background-size: 400%;
 		transition: background 500ms ease-in-out;	
 	}
+	.footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+		margin-top: 100px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        margin-left:0;
+    }
 
 	button:hover {
 		box-shadow:  0 0 10px rgba(55, 1, 92, 1);

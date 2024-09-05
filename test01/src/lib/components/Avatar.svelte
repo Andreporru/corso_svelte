@@ -10,6 +10,9 @@
 	const logout = () => {
 		storeUser.id = '';
 		storeUser.name = '';
+		storeUser.surname='';
+		storeUser.datan='';
+		storeUser.luogon='';
 		storeUser.mail = '';
 		ibanUser.iban = '';
 		storeUser.isLogged = 'false';

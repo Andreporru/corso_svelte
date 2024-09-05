@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { storeUser } from '$lib/stores/user.svelte';
+
 	import { onMount } from 'svelte';
 
 	let password: string = '';
@@ -10,6 +11,7 @@
 	let sw_c = 0;
 
 	let sw_cn = 0;
+	let sw_cs = 0;
 	let sw_cm = 0;
 	let sw_cid = 0;
 
@@ -18,14 +20,16 @@
 	let c_n = 0;
 	let length = 0;
 	$: sw_p = storeUser.password === '' || storeUser.password === null ? 0 : sw_p;
-	$: sw_c = storeUser.name !== '' && storeUser.mail !== '' && storeUser.id !== null ? 0 : sw_c;
+	$: sw_c = storeUser.name !== '' && storeUser.mail !== '' && storeUser.id !== null && storeUser.surname !== '' ? 0 : sw_c;
 	$: sw_cn = storeUser.name !== '' ? 0 : sw_cn;
+	$: sw_cs = storeUser.surname !== '' ? 0: sw_cs;
 	$: sw_cm = storeUser.mail !== '' ? 0 : sw_cm;
 	$: sw_cid = storeUser.id !== null ? 0 : sw_cid;
 	$: sw_id = storeUser.id===null ? 0 : sw_id;
 
 	const clean = () => {
 		storeUser.name = '';
+		storeUser.surname='';
 		storeUser.password = '';
 		storeUser.mail = '';
 		storeUser.indirizzo = '';
@@ -42,7 +46,7 @@
 
 		const stringa = storeUser.password;
 		length = stringa.length;
-		if (storeUser.name === '' || storeUser.mail === '' || storeUser.id === null) {
+		if (storeUser.name === '' || storeUser.mail === '' || storeUser.surname==='' || storeUser.id === null) {
 			console.log('campi non compilati');
 			sw_c = 1;
 			console.log(sw_c);
@@ -55,6 +59,9 @@
 		}
 		if (storeUser.id === null) {
 			sw_cid = 1;
+		}
+		if(storeUser.surname===''){
+			sw_cs = 1;
 		}
 
 		const savedId = localStorage.getItem(`id_${storeUser.id}`);
@@ -83,12 +90,16 @@
 
 		if (sw_p === 0 && sw_id === 0 && sw_c === 0) {
 			storeUser.isLogged = 'true'; 
-			const { id, name, mail, password, indirizzo } = storeUser;
+			const { id,name,surname,datan,luogon,  mail, password, indirizzo } = storeUser;
 			localStorage.setItem(`nome_${storeUser.id}`, name);
+			localStorage.setItem(`surname_${storeUser.id}`,surname);
+			localStorage.setItem(`datan_${storeUser.id}`,datan);
+			localStorage.setItem(`luogon_${storeUser.luogon}`, luogon);
 			localStorage.setItem(`id_${storeUser.id}`, id);
 			localStorage.setItem(`mail_${storeUser.id}`, mail);
 			localStorage.setItem(`password_${storeUser.id}`, password);
 			localStorage.setItem(`indirizzo_${storeUser.indirizzo}`, indirizzo);
+
 			goto('/');
 		}
 	};
@@ -124,6 +135,15 @@
 		style="box-shadow: {sw_cn == 1 ? '0 0 15px red' : 'none'}"
 		bind:value={storeUser.name}
 	/>
+	<label for="surname">Cognome*</label>
+	<input
+		type="text"
+		id="surname"
+		required
+		name="user"
+		style="box-shadow: {sw_cs==1 ? '0 0 15px red':'none'}"
+		bind:value={storeUser.surname}
+	/>
 
 	<label for="mail">Mail*</label>
 	<input
@@ -133,7 +153,10 @@
 		style="box-shadow: {sw_cm == 1 ? '0 0 15px red' : 'none'}"
 		bind:value={storeUser.mail}
 	/>
-
+	<label for="luogon">Luogo di nascita</label>
+	<input type = "text" id ="luogon" name="luogon" bind:value={storeUser.luogon}/>
+	<label for="datan">Data di nascita</label>
+	<input type = "date" id ="datan" name="datan" bind:value={storeUser.datan}/>
 	<label for="indirizzo">Indirizzo</label>
 	<input type="text" id="indirizzo" name="indirizzo" bind:value={storeUser.indirizzo}/>
 
@@ -178,6 +201,9 @@
 	</div>
 {/if}
 
+<div class="footer">
+    &copy; 2024 Gestionale Personale di Porru Andrea. Tutti i diritti riservati.
+</div>
 <!-- <pre>
 {JSON.stringify(storeUser, null, 2)}
 </pre> -->
@@ -230,6 +256,17 @@
 	button:active{
 		transform:translateY(2px);
 	}
+	.footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+		margin-top: 100px;
+        /* position: fixed; */
+        bottom: 0;
+        width: 100%;
+        margin-left:0;
+    }
 
 	
 	.container {
@@ -260,6 +297,7 @@
 	input[type='text'],
 	input[type='number'],
 	input[type='mail'],
+	input[type='date'],
 	input[type='password'] {
 		height: 30px;
 		width: 100%;

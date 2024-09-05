@@ -85,6 +85,87 @@
 		console.log('fatto');
 		URL.revokeObjectURL(url);
 	};
+	const stampa = () => {
+		const printEL = window.open('', '_blank');
+		if (printEL) {
+			const activities = $userActivities;
+			let activitiesHtml = '';
+
+			activities.forEach((attività) => {
+				activitiesHtml += `
+					<tr>
+						<td>${attività.nome}</td>
+						<td>${attività.data}</td>
+						<td>${attività.completata ? 'SI' : 'NO'}</td>
+					</tr>
+				`;
+			});
+
+			printEL.document.open();
+			printEL.document.write(`
+				<html>
+					<head>
+						<title>stampa_attivita_${storeUser.name}_${storeUser.surname}</title>
+						<style>
+							table {
+								width: 100%;
+								border-collapse: collapse;
+								margin-top: 20px;
+								font-family: Arial, sans-serif;
+							}
+							th, td {
+								border: 1px solid #ddd;
+								padding: 8px;
+								text-align: left;
+							}
+							th {
+								background-color: #f4f4f4;
+								color: #333;
+								font-weight: bold;
+							}
+							tr:nth-child(even) {
+								background-color: #f9f9f9;
+							}
+							tr:hover {
+								background-color: #f1f1f1;
+							}
+							td {
+								color: #555;
+							}
+							table {
+								box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+							}
+						</style>
+					</head>
+					<body>
+						<h1>Attività di ${storeUser.name} ${storeUser.surname}</h1>
+						<table>
+							<thead>
+								<tr>
+									<th>Attività</th>
+									<th>Data</th>
+									<th>Completata</th>
+								</tr>
+							</thead>
+							<tbody>
+								${activitiesHtml}
+							</tbody>
+						</table>
+					</body>
+				</html>
+			`);
+			printEL.document.close();
+
+			
+			printEL.focus();
+			printEL.onload = () => {
+				printEL.print(); 
+				printEL.close(); 
+			};
+		} else {
+			console.error('La finestra non può essere aperta');
+		}
+	};
 
 	onMount(() => {
 		loadAttivita();
@@ -105,7 +186,7 @@
 		<input type="date" id="data" name="data" bind:value={data} placeholder="Data attività" />
 
 		<button class="agg" onclick={aggiungi}>Aggiungi</button>
-		<button class="agg" onclick={scaricaCsv}>estrai csv</button>
+		
 		<br />
 		<ul>
 			{#each $userActivities as attività, index}
@@ -125,6 +206,8 @@
 				</li>
 			{/each}
 		</ul>
+		<button class="funz" onclick={scaricaCsv}>estrai csv</button>
+		<button class="funz" onclick={stampa}>stampa</button>
 	{:else}
 		<h1 class="error">ERRORE</h1>
 		<p class="error">
@@ -192,6 +275,26 @@
 		background-color: rgb(78, 0, 78);
 	}
 	.agg:active {
+		transform: translateY(2px);
+	}
+	.funz {
+		margin-top: 10px;
+		border-radius: 5px;
+		padding: 5px 10px;
+		font-size: 14px;
+		background-color: rgb(255, 255, 255);
+		color: blueviolet;
+		border: none;
+		cursor: pointer;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	}
+
+	.funz:hover {
+		background-color: blueviolet;
+		color:white
+
+	}
+	.funz:active {
 		transform: translateY(2px);
 	}
 
