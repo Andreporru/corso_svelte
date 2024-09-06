@@ -60,9 +60,11 @@
 		if (printEL) {
 			const spese = $financesStore;
 			let speseHtml = '';
-
+			let Totale='';
+			let totale=0;
 			spese.forEach((finanze) => {
 				c=c+1;
+				totale+=finanze.amount;
 				speseHtml += `
 					<tr>
 						<td>${c}</td>
@@ -71,6 +73,11 @@
 					</tr>
 				`;
 			});
+			Totale=`<tr>
+						<td>Totale:</td>
+						<td></td>
+						<td>${totale.toFixed(2)}€</td>
+					</tr>`
 
 			printEL.document.open();
 			printEL.document.write(`
@@ -109,17 +116,18 @@
 						</style>
 					</head>
 					<body>
-						<h1>Spese di ${storeUser.name} ${storeUser.surname}</h1>
+						<h1>Spese di ${storeUser.name} ${storeUser.surname} </h1>
 						<table>
 							<thead>
 								<tr>
 									<th>N°</th>
 									<th>Descrizione</th>
-									<th>Totale</th>
+									<th>Importo</th>
 								</tr>
 							</thead>
 							<tbody>
 								${speseHtml}
+								${Totale}
 							</tbody>
 						</table>
 					</body>

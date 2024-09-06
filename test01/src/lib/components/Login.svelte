@@ -4,6 +4,61 @@
 
 	import { storeUser } from '$lib/stores/user.svelte';
 	import { redirect } from '@sveltejs/kit';
+	import { writable } from 'svelte/store';
+	import { userLogs } from '$lib/stores/logs.svelte';
+
+
+	interface Log {
+		nlog: string;
+		data: string;
+	}
+
+	let nlog: string = '';
+	let data: string = '';
+
+
+	const loadLogs = () => {
+	const savedLogs = localStorage.getItem(`logs_${storeUser.id}`);
+	if (savedLogs) {
+		userLogs.set(JSON.parse(savedLogs));
+	} else {
+		userLogs.set([]);
+	}
+};
+
+const saveLogs = (logs: Log[]) => {
+	localStorage.setItem(`logs_${id}`, JSON.stringify(logs));
+};
+
+
+	
+	const aggiungiLog = () => {
+	if (nlog.trim() !== '' && data !== '') {
+		userLogs.update((current) => {
+			
+			const savedLogs = localStorage.getItem(`logs_${id}`);
+			let previousLogs: Log[] = [];
+
+			if (savedLogs) {
+				previousLogs = JSON.parse(savedLogs);
+			}
+
+			// Aggiungi il nuovo log alla lista dei log esistenti
+			const newLog = [...previousLogs, { nlog, data }];
+
+			// Salva i log aggiornati nel localStorage
+			saveLogs(newLog);
+
+			// Aggiorna lo store con i log aggiornati
+			return newLog;
+		});
+
+		// Resetta le variabili per l'inserimento del nuovo log
+		nlog = '';  
+		data = '';  
+	}
+};
+
 
 	let password: string;
 	let id: number;
@@ -14,10 +69,12 @@
 
 	let firstpassword: string;
 	const onclick = () => {
+		loadLogs();
 		sw = 0;
 		sw_id = 0;
 
 		const savedId = localStorage.getItem(`id_${id}`);
+
 
 		const savedpassword = localStorage.getItem(`password_${id}`);
 		if (!savedId) {
@@ -25,13 +82,30 @@
 		} else {
 			sw = 0;
 			if (password === savedpassword) {
+				
+
+
+
+				let giorno,mese,anno,ora,minuti;
+				const date = new Date();
+				mese = date.getMonth();
+				anno = date.getFullYear();
+				ora = date.getHours();
+				minuti=date.getMinutes();
+				giorno = date.getDate();
+				storeUser.lastLogin=`${giorno.toString()}/${mese.toString()}/${anno.toString()}-${ora.toString()}:${minuti.toString()}`;
+				const nlog1 = localStorage.getItem(`nlog_${id}`)
 				const savedname = localStorage.getItem(`nome_${id}`);
 				const savedmail = localStorage.getItem(`mail_${id}`);
 				const savedAdress = localStorage.getItem(`indirizzo_${id}`);
-				const savedSurname=localStorage.getItem(`surname_${id}`);
+				const savedSurname=localStorage.getItem(`cognome_${id}`);
 				const savedDatan=localStorage.getItem(`datan_${id}`);
 				const savedLuogon=localStorage.getItem(`luogon_${id}`);
 				const savediban = localStorage.getItem(`iban_${id}`);
+				const savedDc=localStorage.getItem(`firstLogin_${id}`);
+
+				
+				
 				storeUser.isLogged = 'true';
 				if (savedname) {
 					storeUser.name = savedname;
@@ -54,8 +128,30 @@
 				if(savedLuogon){
 					storeUser.luogon=savedLuogon;
 				}
+				if(nlog1){
+					let calcola=Number(nlog1)+1
+					localStorage.setItem(`nlog_${id}`,calcola.toString());
+					nlog=calcola.toString();
+					data=storeUser.lastLogin;
+					aggiungiLog();
 
-				storeUser.id = savedId;
+				}else{
+					localStorage.setItem(`nlog_${id}`,'1')
+					nlog='1';
+					data=storeUser.lastLogin;
+					aggiungiLog();
+				}
+				
+				const nlog2=localStorage.getItem(`nlog_${id}`);
+				if(nlog2)
+				{
+					storeUser.nlog=nlog2;
+				}
+				const lastLogin=storeUser.lastLogin;
+				
+				localStorage.setItem(`lastLogin_${id}`,lastLogin);
+				storeUser.id=savedId;
+				loadLogs();
 			} else {
 				sw = 3;
 			}

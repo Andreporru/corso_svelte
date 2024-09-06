@@ -10,6 +10,10 @@ export type User = {
     password: string;
     isLogged: string;
     indirizzo: string;
+    firstLogin:string;
+    lastLogin:string;
+    log:string;
+    nlog:string;
 };
 
 export const storeUser: User = $state({
@@ -21,5 +25,9 @@ export const storeUser: User = $state({
     mail: "",
     password: "",
     isLogged:"false",
-    indirizzo: ""
+    indirizzo: "",
+    firstLogin: "",
+    lastLogin:"",
+    log:"",
+    nlog:""
 });

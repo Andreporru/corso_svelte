@@ -46,10 +46,10 @@
 </div>
 
 <style>
-	@font-face{
-	font-family:'digital-clock-font';
-	src: 'C:\Users\stagecl5\Desktop\corso_svelte\digital-7.ttf';
-	}
+		@font-face{
+		font-family:'digital-clock-font';
+		src: 'C:\Users\stagecl5\Desktop\corso_svelte\digital-7.ttf';
+		}
 	.navbar {
 		display: flex;
 		flex-direction: row;

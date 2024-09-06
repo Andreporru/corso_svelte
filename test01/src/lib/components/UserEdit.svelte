@@ -20,16 +20,22 @@
 	let c_n = 0;
 	let length = 0;
 	$: sw_p = storeUser.password === '' || storeUser.password === null ? 0 : sw_p;
-	$: sw_c = storeUser.name !== '' && storeUser.mail !== '' && storeUser.id !== null && storeUser.surname !== '' ? 0 : sw_c;
+	$: sw_c =
+		storeUser.name !== '' &&
+		storeUser.mail !== '' &&
+		storeUser.id !== null &&
+		storeUser.surname !== ''
+			? 0
+			: sw_c;
 	$: sw_cn = storeUser.name !== '' ? 0 : sw_cn;
-	$: sw_cs = storeUser.surname !== '' ? 0: sw_cs;
+	$: sw_cs = storeUser.surname !== '' ? 0 : sw_cs;
 	$: sw_cm = storeUser.mail !== '' ? 0 : sw_cm;
 	$: sw_cid = storeUser.id !== null ? 0 : sw_cid;
-	$: sw_id = storeUser.id===null ? 0 : sw_id;
+	$: sw_id = storeUser.id === null ? 0 : sw_id;
 
 	const clean = () => {
 		storeUser.name = '';
-		storeUser.surname='';
+		storeUser.surname = '';
 		storeUser.password = '';
 		storeUser.mail = '';
 		storeUser.indirizzo = '';
@@ -46,7 +52,12 @@
 
 		const stringa = storeUser.password;
 		length = stringa.length;
-		if (storeUser.name === '' || storeUser.mail === '' || storeUser.surname==='' || storeUser.id === null) {
+		if (
+			storeUser.name === '' ||
+			storeUser.mail === '' ||
+			storeUser.surname === '' ||
+			storeUser.id === null
+		) {
 			console.log('campi non compilati');
 			sw_c = 1;
 			console.log(sw_c);
@@ -60,7 +71,7 @@
 		if (storeUser.id === null) {
 			sw_cid = 1;
 		}
-		if(storeUser.surname===''){
+		if (storeUser.surname === '') {
 			sw_cs = 1;
 		}
 
@@ -89,16 +100,26 @@
 		}
 
 		if (sw_p === 0 && sw_id === 0 && sw_c === 0) {
-			storeUser.isLogged = 'true'; 
-			const { id,name,surname,datan,luogon,  mail, password, indirizzo } = storeUser;
+			storeUser.isLogged = 'true';
+			let giorno,mese,anno,ora,minuti,data;
+			const date = new Date();
+			mese = date.getMonth();
+			anno = date.getFullYear();
+			ora = date.getHours();
+			minuti=date.getMinutes();
+			giorno = date.getDate();
+			storeUser.firstLogin=`${giorno.toString()}/${mese.toString()}/${anno.toString()}-${ora.toString()}:${minuti.toString()}`;
+			const { id, name, surname, datan, luogon, mail, password, indirizzo,firstLogin } = storeUser;
 			localStorage.setItem(`nome_${storeUser.id}`, name);
-			localStorage.setItem(`surname_${storeUser.id}`,surname);
-			localStorage.setItem(`datan_${storeUser.id}`,datan);
-			localStorage.setItem(`luogon_${storeUser.luogon}`, luogon);
+			localStorage.setItem(`cognome_${storeUser.id}`, surname);
+			localStorage.setItem(`datan_${storeUser.id}`, datan);
+			localStorage.setItem(`luogon_${storeUser.id}`, luogon);
 			localStorage.setItem(`id_${storeUser.id}`, id);
 			localStorage.setItem(`mail_${storeUser.id}`, mail);
 			localStorage.setItem(`password_${storeUser.id}`, password);
-			localStorage.setItem(`indirizzo_${storeUser.indirizzo}`, indirizzo);
+			localStorage.setItem(`indirizzo_${storeUser.id}`, indirizzo);
+			localStorage.setItem(`firstLogin_${storeUser.id}`, firstLogin);
+			localStorage.setItem(`lastLogin_${storeUser.id}`,firstLogin);
 
 			goto('/');
 		}
@@ -122,7 +143,7 @@
 	/>
 	{#if sw_id === 1}
 		<br />
-		<br/>
+		<br />
 		<p>ID esistente</p>
 	{/if}
 
@@ -141,7 +162,7 @@
 		id="surname"
 		required
 		name="user"
-		style="box-shadow: {sw_cs==1 ? '0 0 15px red':'none'}"
+		style="box-shadow: {sw_cs == 1 ? '0 0 15px red' : 'none'}"
 		bind:value={storeUser.surname}
 	/>
 
@@ -154,11 +175,11 @@
 		bind:value={storeUser.mail}
 	/>
 	<label for="luogon">Luogo di nascita</label>
-	<input type = "text" id ="luogon" name="luogon" bind:value={storeUser.luogon}/>
+	<input type="text" id="luogon" name="luogon" bind:value={storeUser.luogon} />
 	<label for="datan">Data di nascita</label>
-	<input type = "date" id ="datan" name="datan" bind:value={storeUser.datan}/>
+	<input type="date" id="datan" name="datan" bind:value={storeUser.datan} />
 	<label for="indirizzo">Indirizzo</label>
-	<input type="text" id="indirizzo" name="indirizzo" bind:value={storeUser.indirizzo}/>
+	<input type="text" id="indirizzo" name="indirizzo" bind:value={storeUser.indirizzo} />
 
 	<label for="password">Password*</label>
 	<input type="password" id="password" name="password" bind:value={storeUser.password} />
@@ -174,9 +195,8 @@
 		bind:value={password}
 	/>
 
-
 	{#if storeUser.password && password && storeUser.password !== password}
-	<br><br>
+		<br /><br />
 		<p>Le passwod non corrispondono</p>
 	{/if}
 
@@ -202,8 +222,9 @@
 {/if}
 
 <div class="footer">
-    &copy; 2024 Gestionale Personale di Porru Andrea. Tutti i diritti riservati.
+	&copy; 2024 Gestionale Personale di Porru Andrea. Tutti i diritti riservati.
 </div>
+
 <!-- <pre>
 {JSON.stringify(storeUser, null, 2)}
 </pre> -->
@@ -227,7 +248,6 @@
 		background-color: #ec13133d;
 	}
 
-	
 	button {
 		padding: 15px 20px;
 		margin-top: 20px;
@@ -236,41 +256,39 @@
 		border-radius: 5px;
 		background-color: white;
 		border-color: blueviolet;
-		border:none;
-		color:blueviolet;
+		border: none;
+		color: blueviolet;
 		font-size: 1.25rem;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 		background-image: linear-gradient(45deg, blueviolet 50%, transparent 50%);
 		background-position: 100%;
 		background-size: 400%;
-		transition: background 500ms ease-in-out;		
+		transition: background 500ms ease-in-out;
 	}
 
 	button:hover {
-		box-shadow:  0 0 10px rgba(55, 1, 92, 1);
+		box-shadow: 0 0 10px rgba(55, 1, 92, 1);
 		transition: all 300ms ease-in-out;
-		transform:translateY(-8px);
+		transform: translateY(-8px);
 		background-position: 0;
-		color:white;
+		color: white;
 	}
-	button:active{
-		transform:translateY(2px);
+	button:active {
+		transform: translateY(2px);
 	}
 	.footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 10px;
+		background-color: #333;
+		color: white;
+		text-align: center;
+		padding: 10px;
 		margin-top: 100px;
-        /* position: fixed; */
-        bottom: 0;
-        width: 100%;
-        margin-left:0;
-    }
+		/* position: fixed; */
+		bottom: 0;
+		width: 100%;
+		margin-left: 0;
+	}
 
-	
 	.container {
-	
 		font-family: Arial, sans-serif;
 		max-width: 400px;
 		margin: 0 auto;
