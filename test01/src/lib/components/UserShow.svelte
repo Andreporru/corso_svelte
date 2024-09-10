@@ -54,7 +54,6 @@
 		goto('/cambia-password');
 	};
 	const convertiCsv = () => {
-		// Usa `get` per accedere ai dati non reattivi
 		const headers = 'ID;NOME;COGNOME;LUOGO_NASCITA;DATA_NASCITA;EMAIL;INDIRIZZO;IBAN\n';
 		const row = `${storeUser.id};${storeUser.name};${storeUser.surname};${storeUser.luogon};${storeUser.datan};${storeUser.mail};${storeUser.indirizzo};${ibanUser.iban}\n`;
 		return headers + row;

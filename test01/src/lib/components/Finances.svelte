@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { financesStore } from '$lib/stores/financesStore';
+	import { financesStore } from '$lib/stores/financesStore.svelte';
 	import { storeUser } from '$lib/stores/user.svelte';
 	import { onMount } from 'svelte';
 
@@ -9,7 +9,7 @@
 	const loadExpenses = () => {
 		if (storeUser.id != null) {
 			financesStore.resetExpenses();
-			financesStore.loadExpenses(); 
+			financesStore.loadExpenses(storeUser.id); 
 		}
 	};
 
@@ -145,6 +145,8 @@
 			console.error('La finestra non può essere aperta');
 		}
 	};
+	
+
 
 	onMount(() => {
 		loadExpenses();

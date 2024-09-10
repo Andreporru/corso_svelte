@@ -12,9 +12,9 @@ export const financesStore = (() => {
     const { subscribe, set, update } = writable<Expense[]>([]);
 
     // Carica le spese dal localStorage
-    const loadExpenses = () => {
+    const loadExpenses = (id: string) => {
         if (storeUser.id !=null) {
-            const savedExpenses = localStorage.getItem(`expenses_${storeUser.id}`);
+            const savedExpenses = localStorage.getItem(`expenses_${id}`);
             if (savedExpenses) {
                 set(JSON.parse(savedExpenses));
             }

@@ -3,8 +3,9 @@
 	import { storeUser } from '$lib/stores/user.svelte';
 	import { writable } from 'svelte/store';
 	import { fade, fly } from 'svelte/transition';
+	import { userActivities } from '$lib/stores/attivita.svelte';
 
-	export const userActivities = writable<{ nome: string; data: string; completata: boolean }[]>([]);
+
 
 	interface Attivita {
 		nome: string;
