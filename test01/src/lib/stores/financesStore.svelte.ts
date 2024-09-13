@@ -1,17 +1,16 @@
 import { writable } from 'svelte/store';
 import { storeUser } from './user.svelte';
 
-// Tipo per una spesa
-interface Expense {
-    description: string;
-    amount: number;
+interface Spesa {
+    descrizione: string;
+    importo: number;
 }
 
-// Store per la gestione delle spese
-export const financesStore = (() => {
-    const { subscribe, set, update } = writable<Expense[]>([]);
 
-    // Carica le spese dal localStorage
+export const financesStore = (() => {
+    const { subscribe, set, update } = writable<Spesa[]>([]);
+
+  
     const loadExpenses = (id: string) => {
         if (storeUser.id !=null) {
             const savedExpenses = localStorage.getItem(`expenses_${id}`);
@@ -21,23 +20,22 @@ export const financesStore = (() => {
         }
     };
 
-    // Salva le spese nel localStorage
-    const saveExpenses = (expenses: Expense[]) => {
+    const saveExpenses = (expenses: Spesa[]) => {
         if (storeUser.id !=null) {
             localStorage.setItem(`expenses_${storeUser.id}`, JSON.stringify(expenses));
         }
     };
 
-    // Aggiunge una nuova spesa
-    const addExpense = (description: string, amount: number) => {
+   
+    const addExpense = (descrizione: string, importo: number) => {
         update((expenses: never) => {
-            const newExpenses = [...expenses, { description, amount }];
+            const newExpenses = [...expenses, { descrizione, importo }];
             saveExpenses(newExpenses);
             return newExpenses;
         });
     };
 
-    // Rimuove una spesa
+ 
     const removeExpense = (index: number) => {
         update((expenses: never[]) => {
             const newExpenses = expenses.filter((_: never, i: number) => i !== index);

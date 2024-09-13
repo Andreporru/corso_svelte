@@ -38,7 +38,7 @@
 		<a href="/activities">Attività</a>
 		<a href="/finances">Finanze</a>
 		<a href="/calcula">Calcolatrice</a>
-		<a href="/calendario">Calendario</a>
+		
 		<a href="/admin">area amministratore</a>
 	</div>
 	<div class="clock">{ora}:{minuti < 10 ? '0' : ''}{minuti}:{secondi < 10 ? '0' : ''}{secondi}<!---:{millisecondi < 10 ? '0' : ''}{millisecondi}--></div>

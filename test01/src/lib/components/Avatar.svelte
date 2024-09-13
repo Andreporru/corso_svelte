@@ -19,7 +19,7 @@
 	};
 
 	const vai = () => {
-		goto('/'); // Assicurarsi che la funzione goto punti a un percorso valido
+		goto('/'); 
 	};
 </script>
 

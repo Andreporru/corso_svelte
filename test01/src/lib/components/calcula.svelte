@@ -58,27 +58,27 @@
 		{display}
 	</div>
 	<div class="buttons">
-		<button on:click={() => appendNumber('7')}>7</button>
-		<button on:click={() => appendNumber('8')}>8</button>
-		<button on:click={() => appendNumber('9')}>9</button>
-		<button on:click={() => setOperator('/')}>/</button>
+		<button onclick={() => appendNumber('7')}>7</button>
+		<button onclick={() => appendNumber('8')}>8</button>
+		<button onclick={() => appendNumber('9')}>9</button>
+		<button onclick={() => setOperator('/')}>/</button>
 
-		<button on:click={() => appendNumber('4')}>4</button>
-		<button on:click={() => appendNumber('5')}>5</button>
-		<button on:click={() => appendNumber('6')}>6</button>
-		<button on:click={() => setOperator('*')}>*</button>
+		<button onclick={() => appendNumber('4')}>4</button>
+		<button onclick={() => appendNumber('5')}>5</button>
+		<button onclick={() => appendNumber('6')}>6</button>
+		<button onclick={() => setOperator('*')}>*</button>
 
-		<button on:click={() => appendNumber('1')}>1</button>
-		<button on:click={() => appendNumber('2')}>2</button>
-		<button on:click={() => appendNumber('3')}>3</button>
-		<button on:click={() => setOperator('-')}>-</button>
+		<button onclick={() => appendNumber('1')}>1</button>
+		<button onclick={() => appendNumber('2')}>2</button>
+		<button onclick={() => appendNumber('3')}>3</button>
+		<button onclick={() => setOperator('-')}>-</button>
 
-		<button on:click={() => appendNumber('0')}>0</button>
-		<button on:click={() => appendNumber('.')}>.</button>
-		<button on:click={calculate}>=</button>
-		<button on:click={() => setOperator('+')}>+</button>
+		<button onclick={() => appendNumber('0')}>0</button>
+		<button onclick={() => appendNumber('.')}>.</button>
+		<button onclick={calculate}>=</button>
+		<button onclick={() => setOperator('+')}>+</button>
 
-		<button class="clear" on:click={clear}>C</button>
+		<button class="clear" onclick={clear}>C</button>
 	</div>
 </div>
 

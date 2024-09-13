@@ -3,26 +3,24 @@
 	import { storeUser } from '$lib/stores/user.svelte';
 	import { onMount } from 'svelte';
 
-	let description = '';
-	let amount: number | null = null;
+	let descrizione = '';
+	let importo: number | null = null;
 
 	const loadExpenses = () => {
 		if (storeUser.id != null) {
 			financesStore.resetExpenses();
-			financesStore.loadExpenses(storeUser.id); 
+			financesStore.loadExpenses(storeUser.id);
 		}
 	};
-
 
 	const addExpense = () => {
-		if (description.trim() && amount !== null && amount > 0) {
-			financesStore.addExpense(description, amount);
-			description = '';
-			amount = null;
+		if (descrizione.trim() && importo !== null && importo > 0) {
+			financesStore.addExpense(descrizione, importo);
+			descrizione = '';
+			importo = null;
 		}
 	};
 
-	
 	const removeExpense = (index: number) => {
 		financesStore.removeExpense(index);
 	};
@@ -35,7 +33,7 @@
 
 		for (let i = 0; i < spese.length; i++) {
 			const finanze = spese[i];
-			const row = `${finanze.description};${finanze.amount}\n`;
+			const row = `${finanze.descrizione};${finanze.importo}\n`;
 			rows += row;
 		}
 
@@ -55,29 +53,29 @@
 		URL.revokeObjectURL(url);
 	};
 	const stampa = () => {
-		let c:number=0;
+		let c: number = 0;
 		const printEL = window.open('', '_blank');
 		if (printEL) {
 			const spese = $financesStore;
 			let speseHtml = '';
-			let Totale='';
-			let totale=0;
+			let Totale = '';
+			let totale = 0;
 			spese.forEach((finanze) => {
-				c=c+1;
-				totale+=finanze.amount;
+				c = c + 1;
+				totale += finanze.importo;
 				speseHtml += `
 					<tr>
 						<td>${c}</td>
-						<td>${finanze.description}</td>
-						<td>${finanze.amount.toFixed(2)}€</td>
+						<td>${finanze.descrizione}</td>
+						<td>${finanze.importo.toFixed(2)}€</td>
 					</tr>
 				`;
 			});
-			Totale=`<tr>
+			Totale = `<tr>
 						<td>Totale:</td>
 						<td></td>
 						<td>${totale.toFixed(2)}€</td>
-					</tr>`
+					</tr>`;
 
 			printEL.document.open();
 			printEL.document.write(`
@@ -135,18 +133,15 @@
 			`);
 			printEL.document.close();
 
-			
 			printEL.focus();
 			printEL.onload = () => {
-				printEL.print(); 
-				printEL.close(); 
+				printEL.print();
+				printEL.close();
 			};
 		} else {
 			console.error('La finestra non può essere aperta');
 		}
 	};
-	
-
 
 	onMount(() => {
 		loadExpenses();
@@ -159,16 +154,15 @@
 		<h1>Gestione Finanze</h1>
 
 		<div class="input-group">
-			<input type="text" placeholder="Descrizione" bind:value={description} />
-			<input type="number" placeholder="Importo" bind:value={amount} />
+			<input type="text" placeholder="Descrizione" bind:value={descrizione} />
+			<input type="number" placeholder="Importo" bind:value={importo} />
 			<button onclick={addExpense}>Aggiungi Spesa</button>
-			
 		</div>
 
 		<ul>
 			{#each $financesStore as expense, index}
 				<li>
-					{expense.description} - {expense.amount.toFixed(2)}€
+					{expense.descrizione} - {expense.importo.toFixed(2)}€
 					<button class="rimuovi" onclick={() => removeExpense(index)}>Rimuovi</button>
 				</li>
 			{/each}
@@ -280,8 +274,7 @@
 
 	.funz:hover {
 		background-color: blueviolet;
-		color:white
-
+		color: white;
 	}
 	.funz:active {
 		transform: translateY(2px);
