@@ -1,5 +1,4 @@
 <script lang="ts">
-	
 	import { onMount, onDestroy } from 'svelte';
 	import Avatar from './Avatar.svelte';
 	import Ibatar from './Ibatar.svelte';
@@ -14,43 +13,47 @@
 		ora = date.getHours();
 		minuti = date.getMinutes();
 		secondi = date.getSeconds();
-		millisecondi = Math.floor(date.getMilliseconds() / 10); 
+		millisecondi = Math.floor(date.getMilliseconds() / 10);
 	};
 	let timer: any;
 
 	onMount(() => {
-		updateTime(); 
+		updateTime();
 		timer = setInterval(updateTime, 10);
 	});
 
 	onDestroy(() => {
-		clearInterval(timer); 
+		clearInterval(timer);
 	});
 </script>
 
 <div class="navbar">
 	<div class="links">
 		<a href="/">Home</a>
-		<a href="/about">About</a>
+
 		<a href="/login">Login</a>
 		<a href="/user-show">Dati</a>
 		<a href="/iban-edit">Iban</a>
 		<a href="/activities">Attività</a>
 		<a href="/finances">Finanze</a>
 		<a href="/calcula">Calcolatrice</a>
-		
+
 		<a href="/admin">area amministratore</a>
 	</div>
-	<div class="clock">{ora}:{minuti < 10 ? '0' : ''}{minuti}:{secondi < 10 ? '0' : ''}{secondi}<!---:{millisecondi < 10 ? '0' : ''}{millisecondi}--></div>
+	<div class="clock">
+		{ora}:{minuti < 10 ? '0' : ''}{minuti}:{secondi < 10
+			? '0'
+			: ''}{secondi}<!---:{millisecondi < 10 ? '0' : ''}{millisecondi}-->
+	</div>
 	<Avatar />
 	<!-- <Ibatar /> -->
 </div>
 
 <style>
-		@font-face{
-		font-family:'digital-clock-font';
+	@font-face {
+		font-family: 'digital-clock-font';
 		src: 'C:\Users\stagecl5\Desktop\corso_svelte\digital-7.ttf';
-		}
+	}
 	.navbar {
 		display: flex;
 		flex-direction: row;
@@ -63,8 +66,8 @@
 		position: relative;
 	}
 
-	.clock {	
-		font-family:'digital-clock-font', monospacecd;				
+	.clock {
+		font-family: 'digital-clock-font', monospacecd;
 		/* position: absolute;
 		right: 600px; */
 	}
