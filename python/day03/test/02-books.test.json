@@ -1,0 +1,151 @@
+{
+    "system": {
+        "base_url": "http://127.0.0.1:8000",
+        "log_file": "02.log"
+    },
+    "actions": [
+        {
+            "method": "GET",
+            "url": "/books/clear",
+            "auth": false
+        },
+        {
+            "method": "POST",
+            "url": "/books/add",
+            "auth": false,
+            "params": {
+                "title": "come scrivre un libro",
+                "author": "Mario Rossi!",
+                "isbn": "123-456-789"
+            },
+            "tests": [
+                {
+                    "field": "data.isbn",
+                    "value": "123-456-789"
+                }
+            ]
+        },
+        {
+            "method": "GET",
+            "url": "/books/list",
+            "auth": false,
+            "tests": [
+                {
+                    "field": "data.books",
+                    "mode": "SIZE-GTE",
+                    "value": 1
+                },
+                {
+                    "field": "data.books[0].isbn",
+                    "value": "123-456-789"
+                },
+                {
+                    "field": "data.books[isbn=123-456-789].isbn",
+                    "value": "123-456-789"
+                }
+            ]
+        },
+        {
+            "method": "GET",
+            "url": "/books/123-456-789",
+            "auth": false,
+            "tests": [
+                {
+                    "field": "data.isbn",
+                    "value": "123-456-789"
+                }
+            ]
+        },
+        {
+            "method": "GET",
+            "url": "/books/123-456-XXX",
+            "auth": false,
+            "tests": [
+                {
+                    "field": "data",
+                    "mode": "NOT_EXIST"
+                },
+                {
+                    "field": "error",
+                    "mode": "EXISTS"
+                },
+                {
+                    "field": "error.code",
+                    "value": 1001
+                },
+                {
+                    "field": "error.isbn",
+                    "value": "123-456-XXX"
+                }
+            ]
+        },
+        {
+            "method": "DELETE",
+            "url": "/books/del/123-456-XXX",
+            "auth": false,
+            "tests": [
+                {
+                    "field": "error",
+                    "mode": "EXISTS"
+                }
+            ]
+        },
+        {
+            "method": "DELETE",
+            "url": "/books/del/123-456-789",
+            "auth": false,
+            "tests": [
+                {
+                    "field": "data",
+                    "mode": "EXISTS"
+                }
+            ]
+        },
+        {
+            "method": "GET",
+            "url": "/books/list",
+            "auth": false,
+            "tests": [
+                {
+                    "field": "data.books",
+                    "mode": "LEN",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "method": "POST",
+            "url": "/books/add",
+            "auth": false,
+            "params": {
+                "title": "come scrivre un libro",
+                "author": "Mario Rossi",
+                "isbn": "123-456-789"
+            },
+            "tests": [
+                {
+                    "field": "data.isbn",
+                    "value": "123-456-789"
+                }
+            ]
+        },
+        {
+            "method": "PATCH",
+            "url": "/books/update/123-456-789",
+            "auth": false,
+            "params": {
+                "title": "titolo cambiato"
+            },
+            "tests": [
+                {
+                    "field": "data.title",
+                    "value": "titolo cambiato"
+                },
+                {
+                    "field": "data.author",
+                    "value": "Mario Rossi"
+                }
+            ]
+        }
+    ]
+}

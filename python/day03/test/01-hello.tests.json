@@ -1,0 +1,63 @@
+{
+    "system": {
+        "base_url": "http://127.0.0.1:8000",
+        "log_file": "01.log"
+    },
+    "actions": [
+        {
+            "title": "Testo hello",
+            "method": "GET",
+            "url": "/hello",
+            "auth": false,
+            "tests": [
+                {
+                    "field": "message",
+                    "value": "Hello,world!"
+                }
+            ]
+        },
+        {
+            "method": "GET",
+            "url": "/hello/mario",
+            "auth": false,
+            "tests": [
+                {
+                    "field": "message",
+                    "value": "Hello, mario"
+                },
+                {
+                    "field": "name",
+                    "value": "mario"
+                },
+                {
+                    "field": "reverse",
+                    "value": "oiram"
+                }
+            ],
+            "fields": [
+                [
+                    "reverse",
+                    "nome_mario_reverse"
+                ],
+                [
+                    "name",
+                    "nome_mario"
+                ]
+            ]
+        },
+        {
+            "method": "POST",
+            "url": "/reverse",
+            "auth": false,
+            "params": {
+                "name": "%(nome_mario)s"
+            },
+            "tests": [
+                {
+                    "field": "reverse",
+                    "value": "%(nome_mario_reverse)s"
+                }
+            ]
+        }
+    ]
+}

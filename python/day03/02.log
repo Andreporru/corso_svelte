@@ -1,0 +1,1758 @@
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "[{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}]"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  422
+Request Time: 9.829
+Raw Response: {"detail":[{"type":"model_attributes_type","loc":["body"],"msg":"Input should be a valid dictionary or object to extract fields from","input":[{"title":"come scrivre un libro","author":"Mario Rossi!","isbn":"123-456-789"}]}]}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 85" \
+ -d '[{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}]' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 6.692
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 14.077
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 6.259
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.307
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 13.883
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 2.749
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 11.752
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.591
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 9.124
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.037
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 13.693
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.239
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 696.11
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 5.035
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 2.993
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.619
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.693
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.02
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 9.524
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.036
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.079
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.621
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.685
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.378
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 5.665
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  500
+Request Time: 4.855
+Raw Response: Internal Server Error
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-XXX'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 12.828
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 5.206
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.382
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.881
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  500
+Request Time: 3.956
+Raw Response: Internal Server Error
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-XXX'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 13.153
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.568
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.821
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.442
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 2.949
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-XXX'
+
+
+
+*** ERROR: FIELD: [97mdata[0m VALUE mismatch. Expected: [33mNOT_EXIST[0m - got: [31mNone[0m
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 12.575
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.292
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.037
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.311
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.206
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-XXX'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 5.987
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.935
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.355
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.638
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.526
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-XXX'
+
+======================================================================
+Endpoint:     DELETE http://127.0.0.1:8000/books/del/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.966
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X DELETE \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/del/123-456-XXX'
+
+======================================================================
+Endpoint:     DELETE http://127.0.0.1:8000/books/del/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.612
+Raw Response: {"data":{"isbn":"123-456-789"},"error":null}
+
+CURL:         curl -X DELETE \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/del/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 5.607
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.302
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.957
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.943
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.722
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-XXX'
+
+======================================================================
+Endpoint:     DELETE http://127.0.0.1:8000/books/del/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.134
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X DELETE \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/del/123-456-XXX'
+
+======================================================================
+Endpoint:     DELETE http://127.0.0.1:8000/books/del/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.955
+Raw Response: {"data":{"isbn":"123-456-789"},"error":null}
+
+CURL:         curl -X DELETE \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/del/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.327
+Raw Response: {"data":{"books":[]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 5.725
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.844
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.34
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.255
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.231
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-XXX'
+
+======================================================================
+Endpoint:     DELETE http://127.0.0.1:8000/books/del/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.665
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X DELETE \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/del/123-456-XXX'
+
+======================================================================
+Endpoint:     DELETE http://127.0.0.1:8000/books/del/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.028
+Raw Response: {"data":{"isbn":"123-456-789"},"error":null}
+
+CURL:         curl -X DELETE \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/del/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.838
+Raw Response: {"data":{"books":[]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.345
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     PATCH http://127.0.0.1:8000/books/update/123-456-789
+Data:         "{\"title\": \"titolo cambiato \", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.132
+Raw Response: {"data":{"isbn":"123-456-789","title":"titolo cambiato ","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X PATCH \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 78" \
+ -d '{"title": "titolo cambiato ", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/update/123-456-789'
+
+
+
+*** ERROR: FIELD: [97mdata.title[0m VALUE mismatch. Expected: [33mtitolo cambiato[0m - got: [31mtitolo cambiato [0m
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 11.953
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.439
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.77
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.397
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.022
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-XXX'
+
+======================================================================
+Endpoint:     DELETE http://127.0.0.1:8000/books/del/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.261
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X DELETE \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/del/123-456-XXX'
+
+======================================================================
+Endpoint:     DELETE http://127.0.0.1:8000/books/del/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 2.73
+Raw Response: {"data":{"isbn":"123-456-789"},"error":null}
+
+CURL:         curl -X DELETE \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/del/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.581
+Raw Response: {"data":{"books":[]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.817
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     PATCH http://127.0.0.1:8000/books/update/123-456-789
+Data:         "{\"title\": \"titolo cambiato\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 2.791
+Raw Response: {"data":{"isbn":"123-456-789","title":"titolo cambiato","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X PATCH \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 77" \
+ -d '{"title": "titolo cambiato", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/update/123-456-789'
+
+
+
+*** ERROR: FIELD: [97mdata.author[0m VALUE mismatch. Expected: [33mMario Rossi[0m - got: [31mMario Rossi![0m
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 9.612
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 2.002
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 2.194
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 1.749
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 1.448
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-XXX'
+
+======================================================================
+Endpoint:     DELETE http://127.0.0.1:8000/books/del/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 2.172
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X DELETE \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/del/123-456-XXX'
+
+======================================================================
+Endpoint:     DELETE http://127.0.0.1:8000/books/del/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 1.351
+Raw Response: {"data":{"isbn":"123-456-789"},"error":null}
+
+CURL:         curl -X DELETE \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/del/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 1.371
+Raw Response: {"data":{"books":[]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 1.487
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     PATCH http://127.0.0.1:8000/books/update/123-456-789
+Data:         "{\"title\": \"titolo cambiato\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 1.445
+Raw Response: {"data":{"isbn":"123-456-789","title":"titolo cambiato","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X PATCH \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 28" \
+ -d '{"title": "titolo cambiato"}' \
+ 'http://127.0.0.1:8000/books/update/123-456-789'
+
+
+
+*** ERROR: FIELD: [97mdata.author[0m VALUE mismatch. Expected: [33mMario Rossi[0m - got: [31mMario Rossi![0m
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/clear
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 14.184
+Raw Response: {"data":{"ok":true},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/clear'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi!\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.434
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 83" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi!", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 4.674
+Raw Response: {"data":{"books":[{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"}]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.974
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi!"},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.708
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/123-456-XXX'
+
+======================================================================
+Endpoint:     DELETE http://127.0.0.1:8000/books/del/123-456-XXX
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.616
+Raw Response: {"data":null,"error":{"message":"Book not found","code":1001,"isbn":"123-456-XXX"}}
+
+CURL:         curl -X DELETE \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/del/123-456-XXX'
+
+======================================================================
+Endpoint:     DELETE http://127.0.0.1:8000/books/del/123-456-789
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.123
+Raw Response: {"data":{"isbn":"123-456-789"},"error":null}
+
+CURL:         curl -X DELETE \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/del/123-456-789'
+
+======================================================================
+Endpoint:     GET http://127.0.0.1:8000/books/list
+Data:         "{}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 2.946
+Raw Response: {"data":{"books":[]},"error":null}
+
+CURL:         curl -X GET \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 2" \
+ -d '{}' \
+ 'http://127.0.0.1:8000/books/list'
+
+======================================================================
+Endpoint:     POST http://127.0.0.1:8000/books/add
+Data:         "{\"title\": \"come scrivre un libro\", \"author\": \"Mario Rossi\", \"isbn\": \"123-456-789\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.273
+Raw Response: {"data":{"isbn":"123-456-789","title":"come scrivre un libro","author":"Mario Rossi"},"error":null}
+
+CURL:         curl -X POST \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 82" \
+ -d '{"title": "come scrivre un libro", "author": "Mario Rossi", "isbn": "123-456-789"}' \
+ 'http://127.0.0.1:8000/books/add'
+
+======================================================================
+Endpoint:     PATCH http://127.0.0.1:8000/books/update/123-456-789
+Data:         "{\"title\": \"titolo cambiato\"}"
+Headers:      {'Content-Type': 'application/json; charset=utf-8'}
+Status Code:  200
+Request Time: 3.712
+Raw Response: {"data":{"isbn":"123-456-789","title":"titolo cambiato","author":"Mario Rossi"},"error":null}
+
+CURL:         curl -X PATCH \
+ -H "User-Agent: python-requests/2.32.3" \
+ -H "Accept-Encoding: gzip, deflate" \
+ -H "Accept: */*" \
+ -H "Connection: keep-alive" \
+ -H "Content-Type: application/json; charset=utf-8" \
+ -H "Content-Length: 28" \
+ -d '{"title": "titolo cambiato"}' \
+ 'http://127.0.0.1:8000/books/update/123-456-789'
+
