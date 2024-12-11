@@ -55,6 +55,7 @@ def valore_totale_magazzino():
     return {"valore_totale": magazzino.valore_magazzino()}
 
 @app.get("/magazzino/media")
-def media_valore_articoli():
-    return {"media_valore": magazzino.media_valore_magazzino()}
+def media_valore_magazzino():
+    media = magazzino.media_valore_magazzino()
+    return {"media": media}
 

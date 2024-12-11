@@ -123,4 +123,34 @@ export const valoreMagazzo = async () => {
         };
     }
 };
+export const mediaMagazzo = async () => {
+    try {
+        const req = await fetch(`${BASE_URL}/magazzino/media`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!req.ok) {
+            const errorData = await req.json();
+            return {
+                success: false,
+                error: errorData.detail || "Errore durante il recupero della media del magazzino",
+            };
+        }
+
+        const data = await req.json();
+        return {
+            success: true,
+            data: data.media, // Valore della media
+        };
+    } catch (error) {
+        return {
+            success: false,
+            error: error instanceof Error ? error.message : "Errore sconosciuto",
+        };
+    }
+};
+
 

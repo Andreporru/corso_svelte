@@ -1,69 +1,92 @@
 <script lang="ts"> 
-    import { articoliStore, valore } from "$lib/types2";
+    import { articoliStore, media, valore } from "$lib/types2";
     import type { Item } from "$lib/types";
-    import { itemDelete, itemModifica, valoreMagazzo } from "$lib/actions";
+    import { itemDelete, itemModifica, mediaMagazzo, valoreMagazzo } from "$lib/actions";
 	import { tweened } from "svelte/motion";
 
-    let items: Item[];
+    let items: Item[] = [];
     let editing: Record<string, boolean> = {};
     let newQuantities: Record<string, number> = {};
-    const valoreAnimato = tweened(0, { duration: 500, easing: t => t * (2 - t) }); // Animazione fluida
-    
+    const valoreAnimato = tweened(0, { duration: 500, easing: t => t * (2 - t) });
+    const mediaAnimato = tweened(0, { duration: 500, easing: t => t * (2 - t) });
 
     $: items = $articoliStore;
+
     $: {
-		valore.subscribe((newValue) => {
-			valoreAnimato.set(newValue); // Aggiorna il valore con animazione
-		});
-	}
-    
+        valore.subscribe((newValue) => {
+            valoreAnimato.set(newValue); 
+        });
+    }
+
+    $: {
+        media.subscribe((newValue) => {
+            mediaAnimato.set(newValue); 
+        });
+    }
 
     const modificaQuantita = async (codice_articolo: string) => {
-    const nuovaQuantita = newQuantities[codice_articolo];
-    console.log("Modifica quantità: ${codice_articolo} -> ${nuovaQuantita}");
+        const nuovaQuantita = newQuantities[codice_articolo];
+        if (nuovaQuantita === undefined || nuovaQuantita < 0 || isNaN(nuovaQuantita)) {
+            console.error("Quantità non valida!");
+            return;
+        }
 
-    if (nuovaQuantita === undefined || nuovaQuantita < 0 || isNaN(nuovaQuantita)) {
-        console.error("Quantità non valida!");
-        return;
-    }
+        const result = await itemModifica(codice_articolo, nuovaQuantita);
 
-    const result = await itemModifica(codice_articolo, nuovaQuantita);
+        if (result.success) { 
+            articoliStore.update((articoli) =>
+                articoli.map((item) =>
+                    item.codice_articolo === codice_articolo
+                        ? { ...item, quantita: nuovaQuantita }
+                        : item
+                )
+            );
 
-    if (result.success){ 
-        console.log("Quantità modificata con successo!");
-        articoliStore.update((articoli) =>
-            articoli.map((item) =>
-                item.codice_articolo === codice_articolo
-                    ? { ...item, quantita: nuovaQuantita }
-                    : item
-            )
-        );
-        const res = await valoreMagazzo();
-                if (res.success) {
-                    valore.set(res.data); 
-                    console.error("Errore:", res.error);
-                }
-    } else {
-        console.error("Errore:", result.error);
-    }
+            const res = await valoreMagazzo();
+            if (res.success) {
+                valore.set(res.data); 
+            } else {
+                console.error("Errore nell'aggiornamento del valore:", res.error);
+            }
 
-    editing[codice_articolo] = false; // Esci dalla modalità modifica
-};
+            const res2 = await mediaMagazzo();
+            console.log("mediaaaa:", res2);
+            if (res2.success) { // Usa `res2` qui
+                media.set(res2.data); // Aggiorna la media correttamente
+            } else {
+                console.error("Errore nell'aggiornamento della media:", res2.error);
+            }
+        } else {
+            console.error("Errore nella modifica della quantità:", result.error);
+        }
+
+        editing[codice_articolo] = false;
+    };
+
     const eliminaArticolo = async (codice_articolo: string) => {
         const result = await itemDelete(codice_articolo);
 
         if (result.success) {
-            console.log("Articolo eliminato con successo!");
             articoliStore.update((currentItems) => 
                 currentItems.filter((item) => item.codice_articolo !== codice_articolo)
             );
+
             const res = await valoreMagazzo();
-                if (res.success) {
-                    valore.set(res.data); 
-                    console.error("Errore:", res.error);
-                }
+            if (res.success) {
+                valore.set(res.data); 
+            } else {
+                console.error("Errore nell'aggiornamento del valore:", res.error);
+            }
+
+            const res2 = await mediaMagazzo();
+            if (res2.success) {
+                media.set(res2.data); 
+                console.log("media aggiornata:", $media);
+            } else {
+                console.error("Errore nell'aggiornamento della media:", res2.error);
+            }
         } else {
-            console.error("Errore:", result.error);
+            console.error("Errore nell'eliminazione dell'articolo:", result.error);
         }
     };
 
@@ -74,6 +97,9 @@
         }
     };
 </script>
+
+<!-- HTML e Stile invariati -->
+
 
 <br>
 <br>
@@ -172,7 +198,7 @@
             {/each}
         </tbody>
     </table>
-    <p>valore magazzino: {$valore}</p>
+    <p>valore magazzino: {$valore}</p>    <p>media magazzino :{$media}</p>
 </div>
 
 
@@ -180,6 +206,8 @@
     p{
         color:rgb(33, 126, 202);
         font-weight: bold;
+        display: inline-block;
+        gap:10px;
     }
     .modifica{
         border: 0px;

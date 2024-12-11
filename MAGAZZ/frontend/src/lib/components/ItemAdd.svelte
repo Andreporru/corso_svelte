@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { articoliStore, valore } from "$lib/types2";
-    import { itemAdd, itemList, valoreMagazzo } from "$lib/actions";
+    import { articoliStore, media, valore } from "$lib/types2";
+    import { itemAdd, itemList, mediaMagazzo, valoreMagazzo } from "$lib/actions";
 
     let codice_articolo: string = "";
     let descrizione_articolo: string = "";
@@ -42,6 +42,11 @@
                 if (res.success) {
                     valore.set(res.data); 
                     console.error("Errore:", res.error);
+                }
+                const res2 = await mediaMagazzo();
+                if (res2.success) {
+                    media.set(res2.data);
+                    console.error("Errore:",res2.error)
                 }
             }
         }

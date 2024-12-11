@@ -31,6 +31,7 @@
 		<a href="/">Home</a>
 
 		<a href="/articolo/add">Aggiungi articolo</a>
+		<a href="/articolo/search">Cerca articolo</a>
 	
 	
 	</div>

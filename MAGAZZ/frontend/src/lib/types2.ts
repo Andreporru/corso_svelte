@@ -3,3 +3,4 @@ import type { Item } from './types';
 
 export const articoliStore = writable<Item[]>([]);
 export const valore=writable<number>();
+export const media=writable<number>();

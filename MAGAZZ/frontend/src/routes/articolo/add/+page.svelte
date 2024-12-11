@@ -1,16 +1,18 @@
 <script lang="ts">
     import ItemAdd from "$lib/components/ItemAdd.svelte";
     import ItemList from "$lib/components/ItemList.svelte";
-    import { articoliStore, valore } from "$lib/types2";
-    import { itemList, valoreMagazzo } from "$lib/actions";
+    import { articoliStore, media, valore } from "$lib/types2";
+    import { itemList, mediaMagazzo, valoreMagazzo } from "$lib/actions";
 	import { onMount } from "svelte";
 
     // Carica gli articoli iniziali nel `articoliStore`
     onMount(async () => {
         const items = await itemList();
         const res = await valoreMagazzo();
+        const res2 = await mediaMagazzo();
         articoliStore.set(items);
         valore.set(res.data);
+        media.set(res2.data);
     });
 </script>
 
