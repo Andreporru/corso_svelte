@@ -102,11 +102,11 @@
   
   <div class="stat-container">
     <div class="chart-container">
-      <h3>Quantità per Prodotto</h3>
+      <h3>Quantità</h3>
       <canvas bind:this={canvasQuantita}></canvas>
     </div>
     <div class="chart-container">
-      <h3>Valore Totale per Prodotto</h3>
+      <h3>Valore</h3>
       <canvas bind:this={canvasValore}></canvas>
     </div>
   </div>
