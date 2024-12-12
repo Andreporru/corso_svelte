@@ -1,6 +1,7 @@
 <script lang="ts">
     import { articoliStore, media, valore } from "$lib/types2";
     import { itemAdd, itemList, mediaMagazzo, valoreMagazzo } from "$lib/actions";
+	import { fade } from "svelte/transition";
 
     let codice_articolo: string = "";
     let descrizione_articolo: string = "";
@@ -57,7 +58,7 @@
 
 <br>
 <br>
-<div class="form-container">
+<div class="form-container" >
     <h1>Aggiunta Articolo</h1>
     <div>
         Codice articolo:

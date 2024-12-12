@@ -1,1 +1,68 @@
-[]
+[
+    {
+        "codice_articolo": "89898",
+        "descrizione_articolo": "calcolatrici",
+        "prezzo": 100.0,
+        "quantita": 5
+    },
+    {
+        "codice_articolo": "999",
+        "descrizione_articolo": "Dell i3 ",
+        "prezzo": 550.0,
+        "quantita": 1
+    },
+    {
+        "codice_articolo": "990",
+        "descrizione_articolo": "Matite",
+        "prezzo": 0.5,
+        "quantita": 78
+    },
+    {
+        "codice_articolo": "777",
+        "descrizione_articolo": "Mac air",
+        "prezzo": 1549.0,
+        "quantita": 3
+    },
+    {
+        "codice_articolo": "888",
+        "descrizione_articolo": "cibo",
+        "prezzo": 1000.0,
+        "quantita": 1
+    },
+    {
+        "codice_articolo": "9292",
+        "descrizione_articolo": "calendario",
+        "prezzo": 10.0,
+        "quantita": 100
+    },
+    {
+        "codice_articolo": "88",
+        "descrizione_articolo": "ciao",
+        "prezzo": 2.0,
+        "quantita": 2
+    },
+    {
+        "codice_articolo": "0000",
+        "descrizione_articolo": "farina",
+        "prezzo": 10.0,
+        "quantita": 1000
+    },
+    {
+        "codice_articolo": "111",
+        "descrizione_articolo": "iphone 15",
+        "prezzo": 650.0,
+        "quantita": 24
+    },
+    {
+        "codice_articolo": "9",
+        "descrizione_articolo": "EVIDENZIATORI",
+        "prezzo": 2.0,
+        "quantita": 199
+    },
+    {
+        "codice_articolo": "777FE",
+        "descrizione_articolo": "mangime",
+        "prezzo": 100.0,
+        "quantita": 50
+    }
+]

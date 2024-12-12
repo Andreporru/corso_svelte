@@ -3,6 +3,7 @@
     import type { Item } from "$lib/types";
     import { itemDelete, itemModifica, mediaMagazzo, valoreMagazzo } from "$lib/actions";
 	import { tweened } from "svelte/motion";
+	import { fade } from "svelte/transition";
 
     let items: Item[] = [];
     let editing: Record<string, boolean> = {};
@@ -104,7 +105,7 @@
 <br>
 <br>
 
-<div class="table-container">
+<div class="table-container" >
     <h1>Lista articoli</h1>
     <table>
         <thead>

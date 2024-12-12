@@ -32,7 +32,7 @@
 
 		<a href="/articolo/add">Aggiungi articolo</a>
 		<a href="/articolo/search">Cerca articolo</a>
-	
+		<a href="/articolo/stats">Statistiche</a>
 	
 	</div>
 	<!-- <h1 class="titolo">GESTIONE MAGAZZINO</h1> -->

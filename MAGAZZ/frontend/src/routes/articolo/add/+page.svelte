@@ -4,6 +4,7 @@
     import { articoliStore, media, valore } from "$lib/types2";
     import { itemList, mediaMagazzo, valoreMagazzo } from "$lib/actions";
 	import { onMount } from "svelte";
+	import { fade } from "svelte/transition";
 
     // Carica gli articoli iniziali nel `articoliStore`
     onMount(async () => {
@@ -16,7 +17,7 @@
     });
 </script>
 
-<div class="pagina-container">
+<div class="pagina-container" in:fade={{ duration: 400 }}>
     <div class="component-wrapper">
         <ItemAdd />
     </div>
