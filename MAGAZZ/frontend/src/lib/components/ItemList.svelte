@@ -1,9 +1,10 @@
 <script lang="ts"> 
     import { articoliStore, media, valore } from "$lib/types2";
     import type { Item } from "$lib/types";
-    import { itemDelete, itemModifica, mediaMagazzo, valoreMagazzo } from "$lib/actions";
+    import { itemDelete, itemList, itemModifica, mediaMagazzo, valoreMagazzo } from "$lib/actions";
 	import { tweened } from "svelte/motion";
 	import { fade } from "svelte/transition";
+	import { onMount } from "svelte";
 
     let items: Item[] = [];
     let editing: Record<string, boolean> = {};
@@ -97,6 +98,14 @@
             newQuantities[codice_articolo] = currentQuantita;
         }
     };
+    onMount(async () => {
+        const items = await itemList();
+        const res = await valoreMagazzo();
+        const res2 = await mediaMagazzo();
+        articoliStore.set(items);
+        valore.set(res.data);
+        media.set(res2.data);
+    });
 </script>
 
 <!-- HTML e Stile invariati -->

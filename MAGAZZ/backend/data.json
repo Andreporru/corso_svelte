@@ -1,44 +1,14 @@
 [
     {
-        "codice_articolo": "9292",
-        "descrizione_articolo": "calendario",
-        "prezzo": 10.0,
-        "quantita": 96
-    },
-    {
-        "codice_articolo": "0000",
-        "descrizione_articolo": "farina",
-        "prezzo": 10.0,
-        "quantita": 1001
-    },
-    {
-        "codice_articolo": "111",
-        "descrizione_articolo": "iphone 15",
-        "prezzo": 650.0,
-        "quantita": 24
-    },
-    {
-        "codice_articolo": "9",
-        "descrizione_articolo": "EVIDENZIATORI",
-        "prezzo": 2.0,
-        "quantita": 199
-    },
-    {
-        "codice_articolo": "777FE",
-        "descrizione_articolo": "mangime",
-        "prezzo": 100.0,
-        "quantita": 50
-    },
-    {
         "codice_articolo": "W989",
         "descrizione_articolo": "Air pods",
         "prezzo": 1000.0,
-        "quantita": 110
+        "quantita": 108
     },
     {
-        "codice_articolo": "1111",
-        "descrizione_articolo": "deficit",
-        "prezzo": -50.0,
-        "quantita": 3
+        "codice_articolo": "sms232",
+        "descrizione_articolo": "samsung Note 8",
+        "prezzo": 800.0,
+        "quantita": 89
     }
 ]

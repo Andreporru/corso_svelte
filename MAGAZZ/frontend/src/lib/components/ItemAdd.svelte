@@ -2,6 +2,7 @@
     import { articoliStore, media, valore } from "$lib/types2";
     import { itemAdd, itemList, mediaMagazzo, valoreMagazzo } from "$lib/actions";
 	import { fade } from "svelte/transition";
+	import { onMount } from "svelte";
 
     let codice_articolo: string = "";
     let descrizione_articolo: string = "";
@@ -53,6 +54,14 @@
         }
        
     };
+    onMount(async () => {
+        const items = await itemList();
+        const res = await valoreMagazzo();
+        const res2 = await mediaMagazzo();
+        articoliStore.set(items);
+        valore.set(res.data);
+        media.set(res2.data);
+    });
 </script>
 
 
