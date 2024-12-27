@@ -4,6 +4,7 @@
 	import { fade } from "svelte/transition";
 	import { onMount } from "svelte";
 
+
     let codice_articolo: string = "";
     let descrizione_articolo: string = "";
     let prezzo: number = 0;
@@ -26,7 +27,7 @@
         }else{
             if (!result.success) {
             sw_e = 1;
-            errore = result.error; 
+            errore = result.error;  
             } else {
                 sw_e = 0; 
                 errore = null;
@@ -43,17 +44,19 @@
                 const res = await valoreMagazzo();
                 if (res.success) {
                     valore.set(res.data); 
+                }else{
                     console.error("Errore:", res.error);
                 }
                 const res2 = await mediaMagazzo();
                 if (res2.success) {
                     media.set(res2.data);
-                    console.error("Errore:",res2.error)
+                }else{
+                    console.error("Errore:", res2.error);
                 }
             }
         }
-       
-    };
+    //    location.reload();
+   };
     onMount(async () => {
         const items = await itemList();
         const res = await valoreMagazzo();
@@ -88,6 +91,7 @@
     <button onclick={item_Add}>Aggiungi</button>
 
     {#if sw_e === 1}
+        {console.log("Errore:", errore)}
         <p class="error-message">Errore: {errore}</p>
     {/if}
     {#if sw_c === 1}

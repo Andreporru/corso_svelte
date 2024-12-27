@@ -17,10 +17,10 @@ export const itemAdd = async (codice_articolo: string, descrizione_articolo: str
             };
         }
 
-        const newItem = await req.json(); // Ottieni i dati dell'articolo aggiunto
+        const newItem = await req.json(); 
         return {
             success: true,
-            data: newItem, // Aggiungi la proprietà `data`
+            data: newItem, 
             error: null,
         };
     } catch (error) {
@@ -58,7 +58,7 @@ export const itemDelete = async (codice_articolo: string) => {
 
         return {
             success: true,
-            error: null, // Nessun errore
+            error: null, 
         };
     } catch (error) {
         return {
@@ -75,7 +75,31 @@ export const itemModifica = async (codice_articolo: string, quantita: number) =>
             headers: {
                 "Content-Type": "application/json",
             },
-            // body: JSON.stringify({ quantita }), 
+            
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            return { success: false, error: errorData.detail || "Errore durante la modifica della quantità" };
+        }
+
+        const updatedItem = await response.json();
+        return { success: true, data: updatedItem };
+    } catch (error) {
+        return {
+            success: false,
+            error: error instanceof Error ? error.message : "Errore sconosciuto",
+        };
+    }
+};
+export const itemModificaC = async (codice_articolo: string, codice: string,descrizione:string,prezzo:number,quantita:number) => {
+    try {
+        const response = await fetch(`http://localhost:8000/articoli/mod/${codice_articolo}?nuovo_codice=${codice}&nuova_descrizione=${descrizione}&nuovo_prezzo=${prezzo}&nuova_quantita=${quantita}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+           
         });
 
         if (!response.ok) {
@@ -114,7 +138,7 @@ export const valoreMagazzo = async () => {
         const data = await req.json();
         return {
             success: true,
-            data: data.valore_totale, // Valore del magazzino
+            data: data.valore_totale, 
         };
     } catch (error) {
         return {
@@ -143,7 +167,7 @@ export const mediaMagazzo = async () => {
         const data = await req.json();
         return {
             success: true,
-            data: data.media, // Valore della media
+            data: data.media, 
         };
     } catch (error) {
         return {
@@ -152,5 +176,71 @@ export const mediaMagazzo = async () => {
         };
     }
 };
+
+export const exportMagazzino = async (percorso:string) => {
+    console.log(percorso);
+    try {
+        const encodedPath = encodeURIComponent(percorso);
+        const req = await fetch(`${BASE_URL}/magazzino/export/${encodedPath}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!req.ok) {
+            const errorData = await req.json();
+            return {
+                success: false,
+                error: errorData.detail || "Errore durante l'esportazione del magazzino",
+            };
+        }
+
+        return {
+            success: true,
+            error: null, 
+        };
+    } catch (error) {
+        return {
+            success: false,
+            error: error instanceof Error ? error.message : "Errore sconosciuto",
+        };
+    }
+};
+
+export const importMagazzino = async (percorso: string) => {
+    try {
+        const encodedPath = encodeURIComponent(percorso);
+        const response = await fetch(`${BASE_URL}/magazzino/import/${encodedPath}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ percorso }),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            return {
+                success: false,
+                error: errorData.detail || "Errore durante l'importazione del CSV.",
+            };
+        }
+
+        return {
+            success: true,
+            message: "Importazione completata con successo.",
+        };
+    } catch (error) {
+        return {
+            success: false,
+            error: error instanceof Error ? error.message : "Errore sconosciuto.",
+        };
+    }
+};
+    
+
+
+
 
 

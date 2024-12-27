@@ -1,10 +1,10 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import Chart from 'chart.js/auto'; // Importazione relativa per Chart.js
+    import Chart from 'chart.js/auto'; 
     import { articoliStore } from "$lib/types2";
     import { derived } from "svelte/store";
   
-    // Grafico per quantità per prodotto
+
     const datiQuantita = derived(articoliStore, ($articoliStore) => {
       return $articoliStore.map(articolo => ({
         label: articolo.descrizione_articolo,
@@ -12,7 +12,7 @@
       }));
     });
   
-    // Grafico per valore totale per prodotto
+   
     const datiValore = derived(articoliStore, ($articoliStore) => {
       return $articoliStore.map(articolo => ({
         label: articolo.descrizione_articolo,
@@ -26,7 +26,7 @@
     let canvasValore:HTMLCanvasElement; // Canvas per il grafico valore
   
     onMount(() => {
-      // Dati per il grafico quantità
+     
       datiQuantita.subscribe(data => {
         if (chartQuantitaInstance) {
           chartQuantitaInstance.destroy();
@@ -62,7 +62,7 @@
         });
       });
   
-      // Dati per il grafico valore totale
+ 
       datiValore.subscribe(data => {
         if (chartValoreInstance) {
           chartValoreInstance.destroy();

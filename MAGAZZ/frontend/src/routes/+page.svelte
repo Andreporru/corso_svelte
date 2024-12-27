@@ -1,5 +1,16 @@
 <script lang="ts">
+	import { itemList, mediaMagazzo, valoreMagazzo } from "$lib/actions";
+	import { articoliStore, media, valore } from "$lib/types2";
+	import { onMount } from "svelte";
 
+    onMount(async () => {
+        const items = await itemList();
+        const res = await valoreMagazzo();
+        const res2 = await mediaMagazzo();
+        articoliStore.set(items);
+        valore.set(res.data);
+        media.set(res2.data);
+    });
 </script>
 
 <head>
@@ -10,13 +21,10 @@
 </head>
 <body>
     <div class="home-container">
-        <!-- Header -->
         <header class="header">
             <h1 class="main-title">Gestione Magazzino</h1>
             <p class="subtitle">Ottimizza il tuo magazzino in modo semplice ed efficace</p>
         </header>
-
-        <!-- Sezione Featurs -->
         <!-- svelte-ignore a11y_no_static_element_interactions -->
         <section class="features">
             <!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -37,13 +45,13 @@
             </div>
         </section>
 
-        <!-- Pulsanti -->
+
         <div class="buttons">
             
         
             <button class="button" > <a href="/articolo/add">Gestione articoli</a></button>
             <button class="button" > <a href="/articolo/search">Ricerca articoli</a></button>
-            <!-- <button class="button" onclick="goTo('statistiche.html')">Statistiche</button> -->
+            <button class="button"> <a href="/articolo/stats">Statistiche</a> </button>
         </div>
     </div>
 
@@ -51,12 +59,16 @@
 </body>
 
 <style>
-    /* Stile Generale */
+ 
     body {
         margin: 0;
         font-family: 'Arial', sans-serif;
         background-color: #f4f4f9;
         color: #333;
+    }
+    a{
+        text-decoration: none;
+        color: white;
     }
 
     .home-container {
@@ -67,7 +79,6 @@
         padding: 20px;
     }
 
-    /* Header */
     .header {
         margin-bottom: 40px;
     }

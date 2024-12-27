@@ -43,6 +43,13 @@ def aggiorna_quantita(codice_articolo: str, nuova_quantita: int):
         return {"message": "Quantità aggiornata con successo"}
     raise HTTPException(status_code=404, detail="Articolo non trovato")
 
+@app.put("/articoli/mod/{codice_articolo}")
+def aggiorna_articolo(codice_articolo:str,nuovo_codice:str,nuova_descrizione:str,nuovo_prezzo:float,nuova_quantita:int):
+    if magazzino.modifica_parametri(codice_articolo,nuovo_codice,nuova_descrizione,nuovo_prezzo,nuova_quantita):
+        magazzino.salva_magazzino(filepath)
+        return{"message":"Articolo aggionrnato con successo"}
+    raise HTTPException(status_code=404, detail="Articolo non trovato")
+
 @app.get("/articoli/{codice_articolo}", response_model=Articolo)
 def dettaglio_articolo(codice_articolo: str):
     articolo = magazzino.visualizza_articolo(codice_articolo)
@@ -58,4 +65,33 @@ def valore_totale_magazzino():
 def media_valore_magazzino():
     media = magazzino.media_valore_magazzino()
     return {"media": media}
+
+@app.get("/magazzino/export/{percorso}")
+def esporta_csv(percorso: str):
+    magazzino.carica_magazzino(filepath)
+    res = magazzino.esporta_csv(percorso)
+    if res:
+        return {"message": "File esportato con successo"}
+    raise HTTPException(status_code=404, detail="Percorso non trovato")
+
+@app.get("/magazzino/exportPdf/{percorso}")
+def esporta_pdf(percorso:str):
+    magazzino.carica_magazzino(filepath)
+    res=magazzino.esporta_pdf(percorso)
+    if res:
+        return {"message":"File esportato con successo"}
+    raise HTTPException(status_code=404,detail="Percorso non trovato")
+
+
+
+
+@app.post("/magazzino/import/{percorso}")
+def importa_csv(percorso: str):
+    magazzino.carica_magazzino(filepath)
+    errori = magazzino.importa_csv(percorso)
+    if errori:
+        raise HTTPException(status_code=400, detail=errori)
+    magazzino.salva_magazzino(filepath)
+    return {"message": "Importazione completata con successo."}
+
 

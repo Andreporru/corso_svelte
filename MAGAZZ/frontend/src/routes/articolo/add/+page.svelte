@@ -6,15 +6,15 @@
 	import { onMount } from "svelte";
 	import { fade } from "svelte/transition";
 
-    // Carica gli articoli iniziali nel `articoliStore`
-    // onMount(async () => {
-    //     const items = await itemList();
-    //     const res = await valoreMagazzo();
-    //     const res2 = await mediaMagazzo();
-    //     articoliStore.set(items);
-    //     valore.set(res.data);
-    //     media.set(res2.data);
-    // });
+
+    onMount(async () => {
+        const items = await itemList();
+        const res = await valoreMagazzo();
+        const res2 = await mediaMagazzo();
+        articoliStore.set(items);
+        valore.set(res.data);
+        media.set(res2.data);
+    });
 </script>
 
 <div class="pagina-container" in:fade={{ duration: 400 }}>

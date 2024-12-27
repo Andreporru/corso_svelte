@@ -7,6 +7,3 @@
 </script>
 
 <ItemExport />
-<div>
-    <h1>CIAOOOO</h1>
-</div>

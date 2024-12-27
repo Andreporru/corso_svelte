@@ -33,7 +33,7 @@
 		<a href="/articolo/add">Aggiungi articolo</a>
 		<a href="/articolo/search">Cerca articolo</a>
 		<a href="/articolo/stats">Statistiche</a>
-		<a href="/articolo/export">Esporta</a>
+		<a href="/articolo/export">Esporta/Importa</a>
 	
 	</div>
 	<!-- <h1 class="titolo">GESTIONE MAGAZZINO</h1> -->

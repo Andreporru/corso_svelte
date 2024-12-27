@@ -3,8 +3,15 @@
     import type { Item } from "$lib/types";
     import { itemDelete, itemList, itemModifica, mediaMagazzo, valoreMagazzo } from "$lib/actions";
 	import { tweened } from "svelte/motion";
-	import { fade } from "svelte/transition";
-	import { onMount } from "svelte";
+	import { onMount } from "svelte";    
+    import { cubicOut } from "svelte/easing";
+    import { fly } from "svelte/transition";
+
+    // Transizione personalizzata per l'inserimento
+    const inserimento = (node:any) => fly(node, { y: 50, duration: 400, easing: cubicOut });
+
+    // Transizione personalizzata per la rimozione
+    const rimozione = (node:any) => fly(node, { y: -50, duration: 400, easing: cubicOut });
 
     let items: Item[] = [];
     let editing: Record<string, boolean> = {};
@@ -53,8 +60,8 @@
 
             const res2 = await mediaMagazzo();
             console.log("mediaaaa:", res2);
-            if (res2.success) { // Usa `res2` qui
-                media.set(res2.data); // Aggiorna la media correttamente
+            if (res2.success) { 
+                media.set(res2.data); 
             } else {
                 console.error("Errore nell'aggiornamento della media:", res2.error);
             }
@@ -63,6 +70,7 @@
         }
 
         editing[codice_articolo] = false;
+   
     };
 
     const eliminaArticolo = async (codice_articolo: string) => {
@@ -90,6 +98,7 @@
         } else {
             console.error("Errore nell'eliminazione dell'articolo:", result.error);
         }
+
     };
 
     const toggleEdit = (codice_articolo: string, currentQuantita: number) => {
@@ -106,9 +115,12 @@
         valore.set(res.data);
         media.set(res2.data);
     });
-</script>
 
-<!-- HTML e Stile invariati -->
+
+	function __sveltets_2_ensureTransition(arg0: any) {
+		throw new Error("Function not implemented.");
+	}
+</script>
 
 
 <br>
@@ -127,9 +139,9 @@
                 <th>ELIMINA</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody in:fly={{ y: 20, duration: 450 }} out:fly={{ x: 50, duration: 400 }}>
             {#each items as item}
-            <tr>
+            <tr in:inserimento  out:fly={{ x: 50, duration: 400 }}>
                 <td>{item.codice_articolo}</td>
                 <td>{item.descrizione_articolo}</td>
                 <td>{item.prezzo.toFixed(2)}€</td>
@@ -257,33 +269,50 @@
     }
 
     table {
-        width: 100%;
-        border-collapse: collapse;
-        border-radius: 10px;
-    }
+    border-collapse: separate; 
+    border-spacing: 0; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: white;
+}
 
-    th, td {
-        padding: 6px;
-        text-align: left;
-        border: 1px solid #ddd;
-       
-    }
+th, td {
+    padding: 10px; 
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px; 
+}
 
-    th {
-        background-color: rgb(33, 126, 202);
-        color: white;
-      
-    }
+th {
+    background-color: rgb(33, 126, 202); 
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
 
-    tr:nth-child(even) {
-        background-color: #f9f9f9;
-       
-    }
 
-    tr:hover {
-        background-color: #f1f1f1;
-       
-    }
+
+
+tr:hover {
+ 
+    transition: background-color 0.3s ease; 
+}
+
+tr:last-child td {
+    border-bottom: none; 
+}
+
+
+th:first-child,
+td:first-child {
+    border-top-left-radius: 15px; 
+}
+
+th:last-child,
+td:last-child {
+    border-top-right-radius: 15px; 
+}
     input{
         width: 60px;
     }

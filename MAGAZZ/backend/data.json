@@ -1,14 +1,14 @@
 [
     {
-        "codice_articolo": "W989",
-        "descrizione_articolo": "Air pods",
-        "prezzo": 1000.0,
-        "quantita": 108
+        "codice_articolo": "1111",
+        "descrizione_articolo": "bimbi",
+        "prezzo": 1466.0,
+        "quantita": 7
     },
     {
-        "codice_articolo": "sms232",
-        "descrizione_articolo": "samsung Note 8",
-        "prezzo": 800.0,
-        "quantita": 89
+        "codice_articolo": "1911",
+        "descrizione_articolo": "alexa",
+        "prezzo": 16.0,
+        "quantita": 400
     }
 ]
