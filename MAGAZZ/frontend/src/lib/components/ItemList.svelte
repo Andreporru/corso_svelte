@@ -236,7 +236,8 @@
         background-color: transparent;
     } 
      .modifica:hover{
-        transform: translateY(-3px);
+        transform: scale(1.3);
+        transition: transform 0.3s ease;
     }
     .modifica:active{
         transform: translateY(2px);
@@ -247,12 +248,14 @@
         background-color: transparent;
     }
     .cestino:hover{
-        transform: translateY(-3px);
+        transform: scale(1.3);
+        transition: transform 0.3s ease;
     }
     .cestino:active{
         transform: translateY(2px);
     }
     .table-container {
+        /* width: 100%; */
         background-color: #f4f4f9;
         padding: 10px;
         border-radius: 10px;

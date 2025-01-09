@@ -20,11 +20,12 @@
         
         
 
-        const result = await itemAdd(codice_articolo, descrizione_articolo, prezzo, quantita);
+        
         if(codice_articolo=="")
         {
             sw_c=1;
         }else{
+            const result = await itemAdd(codice_articolo, descrizione_articolo, prezzo, quantita);
             if (!result.success) {
             sw_e = 1;
             errore = result.error;  

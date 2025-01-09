@@ -206,7 +206,8 @@
         background-color: transparent;
     }
     .svg:hover {
-        transform: translateY(-3px);
+        transform: scale(1.3);
+        transition: transform 0.3s ease;
     }
     .svg:active {
         transform: translateY(2px);

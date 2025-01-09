@@ -1,14 +1,50 @@
 [
     {
-        "codice_articolo": "1111",
-        "descrizione_articolo": "bimbi",
-        "prezzo": 1466.0,
+        "codice_articolo": "NK111",
+        "descrizione_articolo": "NIKE AF1",
+        "prezzo": 120.0,
+        "quantita": 50
+    },
+    {
+        "codice_articolo": "AB01",
+        "descrizione_articolo": "COLOMBA",
+        "prezzo": 10.5,
         "quantita": 7
     },
     {
-        "codice_articolo": "1911",
-        "descrizione_articolo": "alexa",
-        "prezzo": 16.0,
-        "quantita": 400
+        "codice_articolo": "AB03",
+        "descrizione_articolo": "MIONETTO VALDOB.",
+        "prezzo": 15.0,
+        "quantita": 8
+    },
+    {
+        "codice_articolo": "AB05",
+        "descrizione_articolo": "AIRPODS",
+        "prezzo": 120.0,
+        "quantita": 100
+    },
+    {
+        "codice_articolo": "AB06",
+        "descrizione_articolo": "ROLEX DAYJUST PANDA",
+        "prezzo": 7800.0,
+        "quantita": 3
+    },
+    {
+        "codice_articolo": "AB08",
+        "descrizione_articolo": "TOM FORD PARF",
+        "prezzo": 160.0,
+        "quantita": 30
+    },
+    {
+        "codice_articolo": "AB09",
+        "descrizione_articolo": "TASTIERA LOGITECH",
+        "prezzo": 12.0,
+        "quantita": 100
+    },
+    {
+        "codice_articolo": "AB00",
+        "descrizione_articolo": "MONITOR PHILIPS",
+        "prezzo": 35.0,
+        "quantita": 100
     }
 ]

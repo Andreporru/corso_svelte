@@ -29,12 +29,10 @@
 <style>
     .pagina-container {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         gap: 20px;
-        justify-content: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        font-family: Arial, sans-serif;
+        align-items: flex-start;
+    
     }
 
     .component-wrapper {

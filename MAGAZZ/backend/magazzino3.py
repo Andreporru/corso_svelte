@@ -46,6 +46,9 @@ class Magazzino:
         return False
     def modifica_parametri(self,codice_articolo: str,nuovo_codice:str,nuova_descrizione:str,nuovo_prezzo:float,nuova_quantita:int)->bool:
         for articolo in self.articoli:
+            if nuovo_codice == articolo.codice_articolo:
+               return False
+        for articolo in self.articoli:
             if articolo.codice_articolo == codice_articolo:
                 articolo.codice_articolo = nuovo_codice
                 articolo.descrizione_articolo = nuova_descrizione
@@ -67,6 +70,9 @@ class Magazzino:
         if not self.articoli:
             return 0.0
         return self.valore_magazzino() / len(self.articoli)
+    
+    def totale_quantita(self)->int:
+        return sum(articolo.quantita for articolo in self.articoli)
 
     def carica_magazzino(self, filepath: str):
         with open(filepath, "r") as file:
@@ -94,8 +100,8 @@ class Magazzino:
                         articolo.quantita
                     ])
                 valore = self.valore_magazzino()
-                prezzo_medio = self.media_valore_magazzino()
-                writer.writerow(["", "Totali",valore,f"{prezzo_medio:.2f}"])
+                totale_q = self.totale_quantita()
+                writer.writerow(["", "Totali",valore,f"{totale_q:.2f}"])
             
             return True
         except Exception as e:

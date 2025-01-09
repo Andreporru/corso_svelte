@@ -48,7 +48,7 @@ def aggiorna_articolo(codice_articolo:str,nuovo_codice:str,nuova_descrizione:str
     if magazzino.modifica_parametri(codice_articolo,nuovo_codice,nuova_descrizione,nuovo_prezzo,nuova_quantita):
         magazzino.salva_magazzino(filepath)
         return{"message":"Articolo aggionrnato con successo"}
-    raise HTTPException(status_code=404, detail="Articolo non trovato")
+    raise HTTPException(status_code=4049, detail="Il codice articolo inserito è esistente")
 
 @app.get("/articoli/{codice_articolo}", response_model=Articolo)
 def dettaglio_articolo(codice_articolo: str):
