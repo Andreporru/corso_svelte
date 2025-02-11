@@ -18,8 +18,11 @@
     let newQuantities: Record<string, number> = {};
     const valoreAnimato = tweened(0, { duration: 500, easing: t => t * (2 - t) });
     const mediaAnimato = tweened(0, { duration: 500, easing: t => t * (2 - t) });
+    $: swpop = 0;
+    $: swpop1 = 0;
 
     $: items = $articoliStore;
+    
 
     $: {
         valore.subscribe((newValue) => {
@@ -70,7 +73,13 @@
         }
 
         editing[codice_articolo] = false;
-   
+        swpop = 1;
+        swpop1 = 1;
+    };
+    const popup = () => {
+        swpop = 0;
+        swpop1 = 0;
+        window.location.reload();
     };
 
     const eliminaArticolo = async (codice_articolo: string) => {
@@ -98,7 +107,8 @@
         } else {
             console.error("Errore nell'eliminazione dell'articolo:", result.error);
         }
-
+        swpop = 1;
+        swpop1 = 2;
     };
 
     const toggleEdit = (codice_articolo: string, currentQuantita: number) => {
@@ -125,6 +135,19 @@
 
 <br>
 <br>
+{#if swpop ==1 && swpop1 == 2}
+<div class ="popup" >
+    <span class="popuptext" id="myPopup">Articolo eliminato con successo! <br> <button class="red" onclick={popup}>ok</button></span>
+ 
+</div>
+{/if}
+{#if swpop == 1 && swpop1 == 1}
+
+<div class ="popup" >
+    <span class="popuptext" id="myPopup">Articolo modificato con successo! <br><button class="red" onclick={popup}>ok</button></span>
+  
+</div>
+{/if}
 
 <div class="table-container" >
     <h1>Lista articoli</h1>
@@ -225,6 +248,41 @@
 
 
 <style>
+    .popup{
+        position: relative;
+        display: inline-block;
+        cursor:pointer;
+        }
+    .popup .popuptext{
+        width: 300px;
+        height: 50px;
+        background-color: rgb(212, 14, 14);
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 10px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -150px;
+        animation: fadeIn 1s;
+        box-shadow: 0 0 100px rgba(255, 1, 1, 0.1);
+    }
+    .red {
+        background-color: red;
+        color:white;
+        border-color: transparent;
+        border-radius: 6px;
+    }
+    .red:hover{
+        background-color: rgb(184, 8, 8);
+        color:white;
+        border-color:transparent;
+        border-radius: 6px;
+
+    }
+ 
     p{
         color:rgb(33, 126, 202);
         font-weight: bold;
@@ -256,6 +314,7 @@
     }
     .table-container {
         /* width: 100%; */
+        position:absolute;
         background-color: #f4f4f9;
         padding: 10px;
         border-radius: 10px;
@@ -318,5 +377,16 @@ td:last-child {
 }
     input{
         width: 60px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 </style>

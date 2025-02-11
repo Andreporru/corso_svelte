@@ -6,11 +6,16 @@ import NavBar from '$lib/components/NavBar.svelte';
 <NavBar />
 
 <div class="container">
-	<slot />
+	<slot /> 
 </div>
 
 <style>
 	.container {
 		margin: 0;
+		/* padding: 0; */
+		/* display: flex; */
+		flex-direction: column;
+		align-items: center;
+
 	}
 </style>

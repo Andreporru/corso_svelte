@@ -46,9 +46,6 @@ class Magazzino:
         return False
     def modifica_parametri(self,codice_articolo: str,nuovo_codice:str,nuova_descrizione:str,nuovo_prezzo:float,nuova_quantita:int)->bool:
         for articolo in self.articoli:
-            if nuovo_codice == articolo.codice_articolo:
-               return False
-        for articolo in self.articoli:
             if articolo.codice_articolo == codice_articolo:
                 articolo.codice_articolo = nuovo_codice
                 articolo.descrizione_articolo = nuova_descrizione

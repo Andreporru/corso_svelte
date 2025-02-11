@@ -24,6 +24,9 @@
         if(codice_articolo=="")
         {
             sw_c=1;
+        }else if(descrizione_articolo=="")
+        {
+            sw_c=2;
         }else{
             const result = await itemAdd(codice_articolo, descrizione_articolo, prezzo, quantita);
             if (!result.success) {
@@ -96,9 +99,11 @@
         <p class="error-message">Errore: {errore}</p>
     {/if}
     {#if sw_c === 1}
-    <p class="error-message">Errore: codice articolo nullo</p>
+        <p class="error-message">Errore: codice articolo nullo</p>
     {/if}
-
+    {#if sw_c ==2}
+        <p class="error-message">Errore: Descrizione articolo mancante</p>
+    {/if}
 </div>
 
 <style>

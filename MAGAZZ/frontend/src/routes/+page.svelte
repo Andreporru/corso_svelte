@@ -11,6 +11,8 @@
         valore.set(res.data);
         media.set(res2.data);
     });
+
+  
 </script>
 
 <head>
@@ -28,11 +30,13 @@
         <!-- svelte-ignore a11y_no_static_element_interactions -->
         <section class="features">
             <!-- svelte-ignore a11y_click_events_have_key_events -->
+            
             <div class="feature-card" >
                 <div class="feature-icon">📦</div>
                 <h2 class="feature-title">Gestione Articoli</h2>
-                <p class="feature-desc">Aggiungi, modifica ed elimina articoli con pochi clic.</p>
+                <p class="feature-desc">Aggiungi, modifica ed elimina articoli in pochi clic.</p>
             </div>
+            
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
                 <h2 class="feature-title">Analisi Magazzino</h2>
@@ -54,11 +58,26 @@
             <button class="button"> <a href="/articolo/stats">Statistiche</a> </button>
         </div>
     </div>
+    <div class="footer">
+        <p>© 2025 - Gestione Magazzino - Andrea porru</p>
+    </div>
 
 
 </body>
 
 <style>
+   .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30px;
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px ;
+        
+    }
  
     body {
         margin: 0;
