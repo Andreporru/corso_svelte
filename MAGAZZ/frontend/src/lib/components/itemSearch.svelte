@@ -95,7 +95,7 @@
                     : item
             )
         );
-        // aggiornaRisultati(); // Aggiorna i risultati della ricerca
+         aggiornaRisultati(); //Aggiorna i risultati della ricerca
     } else {
         alert("Errore durante la modifica dell'articolo.");
     }

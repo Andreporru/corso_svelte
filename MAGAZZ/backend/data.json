@@ -1,38 +1,32 @@
 [
     {
         "codice_articolo": "AB00",
-        "descrizione_articolo": "MONITOR PHILIPS",
-        "prezzo": 35.0,
+        "descrizione_articolo": "MONITOR LG",
+        "prezzo": 350.0,
         "quantita": 100
     },
     {
         "codice_articolo": "AB068",
-        "descrizione_articolo": "COLOMBETTA",
-        "prezzo": 12.0,
+        "descrizione_articolo": "mac",
+        "prezzo": 1290.0,
         "quantita": 6
     },
     {
         "codice_articolo": "AB022",
-        "descrizione_articolo": "COLOMMETTA",
-        "prezzo": 3.0,
-        "quantita": 289
-    },
-    {
-        "codice_articolo": "21212",
-        "descrizione_articolo": "airpods",
-        "prezzo": 100.0,
-        "quantita": 10
+        "descrizione_articolo": "HONDA CB125H",
+        "prezzo": 4900.0,
+        "quantita": 25
     },
     {
         "codice_articolo": "7857",
         "descrizione_articolo": "AEROX",
-        "prezzo": 3200.0,
+        "prezzo": 1800.0,
         "quantita": 5
     },
     {
-        "codice_articolo": "90899",
-        "descrizione_articolo": "",
-        "prezzo": 1200.0,
-        "quantita": 2000
+        "codice_articolo": "888",
+        "descrizione_articolo": "rulette",
+        "prezzo": 10000.0,
+        "quantita": 1
     }
 ]

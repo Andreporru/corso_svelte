@@ -318,7 +318,7 @@
         background-color: #f4f4f9;
         padding: 10px;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
         margin-bottom: 20px;
         
     }

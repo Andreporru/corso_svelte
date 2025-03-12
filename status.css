@@ -1,0 +1,12 @@
+.monaco-workbench .part.statusbar {
+
+    background-color: rgba(4, 248, 248, 0.712)!important;
+    color: black !important;
+    font-family: 'Courier New', Courier, monospace !important;   /*statusbar*/
+    font-size: larger !important;
+    font-weight: bold !important;
+}
+
+
+
+

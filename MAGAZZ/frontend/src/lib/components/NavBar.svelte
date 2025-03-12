@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
+	import { writable } from 'svelte/store';
 
-
+	const dispatch = createEventDispatcher();
+	const theme = writable<'light' | 'dark'>('light');
 	let ora: number;
 	let minuti: number;
 	let secondi: number;
@@ -24,18 +27,31 @@
 	onDestroy(() => {
 		clearInterval(timer);
 	});
+
+	const chiaroScuro = () => {
+		dispatch('toggleTheme');
+	};
+
+	function toggleTheme() {
+		theme.update(current => {
+			const newTheme = current === 'light' ? 'dark' : 'light';
+			document.documentElement.setAttribute('data-theme', newTheme);
+			localStorage.setItem('theme', newTheme);
+			return newTheme;
+		});
+	}
 </script>
 
-<div class="navbar">
+<div class="navbar" data-theme={$theme}>
 	<div class="links">
-		<a href="/">Home</a>
+		<a class = "e" href="/" data-theme={$theme} >Home</a>
 
-		<a href="/articolo/add">Aggiungi articolo</a>
-		<a href="/articolo/search">Cerca articolo</a>
-		<a href="/articolo/stats">Statistiche</a>
-		<a href="/articolo/export">Esporta/Importa</a>
-		<a href="/articolo/question">Quesiti</a>
-	
+		<a  class="e"  href="/articolo/add" data-theme={$theme}>Aggiungi articolo</a>
+		<a  class="e" href="/articolo/search" data-theme={$theme}>Cerca articolo</a>
+		<a  class="e" href="/articolo/stats" data-theme={$theme}>Statistiche</a>
+		<a  class="e" href="/articolo/export" data-theme={$theme}>Esporta/Importa</a>
+		<a  class="e" href="/articolo/question" data-theme={$theme}>Quesiti</a>
+
 	</div>
 	<!-- <h1 class="titolo">GESTIONE MAGAZZINO</h1> -->
 	<div class="clock">
@@ -51,18 +67,17 @@
 		font-family: 'digital-clock-font';
 		src: 'C:\Users\stagecl5\Desktop\corso_svelte\digital-7.ttf';
 	}
-
 	.navbar {
 		display: flex;
 		flex-direction: row;
-		background-color: rgb(33, 126, 202);
+		background-color: rgb(33,126,222);
 		color: white;
 		justify-content: space-between;
 		padding: 10px;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 		font-size: 20px;
+		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 		position: relative;
-		height: 30px;
 	}
 
 	.clock {

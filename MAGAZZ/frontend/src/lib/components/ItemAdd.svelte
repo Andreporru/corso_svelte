@@ -92,7 +92,7 @@
         Quantità:
         <input type="number" bind:value={quantita} />
     </div>
-    <button onclick={item_Add}>Aggiungi</button>
+    <button class="aggiungi" onclick={item_Add}>+</button>
 
     {#if sw_e === 1}
         {console.log("Errore:", errore)}
@@ -107,11 +107,12 @@
 </div>
 
 <style>
+ 
     .form-container {
         background-color: #f4f4f9;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
         margin-bottom: 20px;
     }
 
@@ -134,7 +135,7 @@
 
     .form-container button {
         display: block;
-        width: 100%;
+        width: 25%;
         padding: 10px;
         background-color: rgb(33, 126, 202);
         color: white;

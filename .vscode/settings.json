@@ -3,5 +3,8 @@
         "MAGAZZ"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "C_Cpp.default.compilerPath": "cl.exe",
+    "vscode_custom_css.imports": ["file:///C:/Users/stagecl5/Desktop/corso_svelte/status.css"]
+
 }

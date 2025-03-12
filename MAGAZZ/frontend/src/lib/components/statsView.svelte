@@ -121,7 +121,7 @@
 
     
       animation: fadeIn 0.5s ease-in-out;
-      margin-top: 50px;
+      padding-top: 50px;
     }
   
     .chart-container {
