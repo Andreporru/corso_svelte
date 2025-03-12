@@ -6,7 +6,7 @@
     let quesito1 = $state('');
    
     
-    // 📄 Associazione quesiti → PDF
+
     let quesiti: { [key: string]: string } = {
         "Importazione": "/pdf/importazione.pdf",
         "Esportazione": "/pdf/esportazione.pdf",
@@ -22,14 +22,14 @@
     };
     let tuttiQuesiti = Object.keys(quesiti);
 
-    // Mostra 5 quesiti casuali all'inizio
+    
     risultati = [...tuttiQuesiti].sort(() => Math.random() - 0.5).slice(0, 5);
 
     function toggleContenuto(quesito: string) {
         mostra = true;
         parola = quesito;
         quesito1 = quesito;
-        // apriPDF(quesito);
+       
     }
 
     function toggleContenuto1() {
@@ -82,8 +82,10 @@
             {/if}
         {:else}
             <div class="contenuto">
+                <!-- svelte-ignore a11y_missing_attribute -->
                 <iframe src={`/pdf/${parola.toLowerCase()}.pdf`} width="100%" height="600px"></iframe>
           
+                <!-- svelte-ignore a11y_consider_explicit_label -->
                 <button class="svg" onclick={toggleContenuto1}>
                     <svg width="40px" height="40px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#217eca" transform="rotate(0)matrix(-1, 0, 0, 1, 0, 0)" stroke="#217eca">
 
@@ -95,6 +97,7 @@
                         
                         </svg>
                 </button>
+                <!-- svelte-ignore a11y_consider_explicit_label -->
                 <button onclick={() => apriPDF(quesito1)} class ="svg"><svg fill="#217eca" width="40px" height="40px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" stroke="#217eca">
 
                     <g id="SVGRepo_bgCarrier" stroke-width="0"/>

@@ -79,7 +79,7 @@
 
 	a:hover {
 		transition: all 0.2s ease-in-out;
-		font-size: larger;
+		font-size: 25px;
 	}
 
 	.links {

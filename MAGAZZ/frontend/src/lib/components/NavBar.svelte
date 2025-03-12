@@ -1,104 +1,116 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
-	import { createEventDispatcher } from 'svelte';
-	import { writable } from 'svelte/store';
+	import { onMount, onDestroy } from "svelte";
+	import { writable } from "svelte/store";
 
-	const dispatch = createEventDispatcher();
-	const theme = writable<'light' | 'dark'>('light');
 	let ora: number;
 	let minuti: number;
 	let secondi: number;
-	let millisecondi: number;
+	let timer: any;
 
+	// Variabile per memorizzare il link attivo
+	let activeLink = writable<string>("/");
+
+	// Aggiorniamo l'orario
 	const updateTime = () => {
 		const date = new Date();
 		ora = date.getHours();
 		minuti = date.getMinutes();
 		secondi = date.getSeconds();
-		millisecondi = Math.floor(date.getMilliseconds() / 10);
 	};
-	let timer: any;
 
+	// Timer per aggiornare il clock ogni secondo
 	onMount(() => {
 		updateTime();
-		timer = setInterval(updateTime, 10);
+		timer = setInterval(updateTime, 1000);
+
+		// Controlliamo l'URL iniziale e lo impostiamo come attivo
+		activeLink.set(window.location.pathname);
 	});
 
+	// Puliamo il timer quando il componente viene distrutto
 	onDestroy(() => {
 		clearInterval(timer);
 	});
 
-	const chiaroScuro = () => {
-		dispatch('toggleTheme');
+	// Funzione per impostare il link attivo quando viene cliccato
+	const setActive = (path: string) => {
+		activeLink.set(path);
 	};
-
-	function toggleTheme() {
-		theme.update(current => {
-			const newTheme = current === 'light' ? 'dark' : 'light';
-			document.documentElement.setAttribute('data-theme', newTheme);
-			localStorage.setItem('theme', newTheme);
-			return newTheme;
-		});
-	}
 </script>
 
-<div class="navbar" data-theme={$theme}>
+<!-- Navbar -->
+<div class="navbar">
 	<div class="links">
-		<a class = "e" href="/" data-theme={$theme} >Home</a>
-
-		<a  class="e"  href="/articolo/add" data-theme={$theme}>Aggiungi articolo</a>
-		<a  class="e" href="/articolo/search" data-theme={$theme}>Cerca articolo</a>
-		<a  class="e" href="/articolo/stats" data-theme={$theme}>Statistiche</a>
-		<a  class="e" href="/articolo/export" data-theme={$theme}>Esporta/Importa</a>
-		<a  class="e" href="/articolo/question" data-theme={$theme}>Quesiti</a>
-
+		<a href="/" class="active">Home</a>
+		<a href="/articolo/add" class="active">Aggiungi articolo</a>
+		<a href="/articolo/search" class="active">Cerca articolo</a>
+		<a href="/articolo/stats" class="active">Statistiche</a>
+		<a href="/articolo/export" class="active">Esporta/Importa</a>
+		<a href="/articolo/question" class="active">Documentazione</a>
 	</div>
-	<!-- <h1 class="titolo">GESTIONE MAGAZZINO</h1> -->
+
+	<!-- Orologio -->
 	<div class="clock">
-		{ora}:{minuti < 10 ? '0' : ''}{minuti}:{secondi < 10
-			? '0'
-			: ''}{secondi}<!---:{millisecondi < 10 ? '0' : ''}{millisecondi}-->
+		{ora}:{minuti < 10 ? "0" : ""}{minuti}:{secondi < 10 ? "0" : ""}{secondi}
 	</div>
-
 </div>
 
+<!-- Stile -->
 <style>
 	@font-face {
-		font-family: 'digital-clock-font';
-		src: 'C:\Users\stagecl5\Desktop\corso_svelte\digital-7.ttf';
+		font-family: "digital-clock-font";
+		src: url("/digital-7.ttf");
 	}
+
 	.navbar {
+		border-radius: 10px;
+		height: 30px;
 		display: flex;
-		flex-direction: row;
-		background-color: rgb(33,126,222);
-		color: white;
 		justify-content: space-between;
-		padding: 10px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-		font-size: 20px;
-		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-		position: relative;
-	}
-
-	.clock {
-		font-family: 'digital-clock-font', monospacecd;
-		/* position: absolute;
-		right: 600px; */
-	}
-
-	a {
+		align-items: center;
+		background-color: rgb(33, 126, 222);
 		color: white;
-		text-decoration: none;
+		padding: 15px 25px;
+		box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+		font-size: 20px;
+		font-family: "Trebuchet MS", sans-serif;
+		position: relative;
+		transition: all 0.3s ease-out;
 	}
 
-	a:hover {
-		transition: all 0.2s ease-in-out;
-		font-size: larger;
+	.navbar:hover {
+		background-color: rgb(26, 99, 164);
+		box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
 	}
 
 	.links {
 		display: flex;
-		flex-direction: row;
-		gap: 10px;
+		gap: 25px;
+	}
+
+	.links a {
+		color: white;
+		text-decoration: none;
+		position: relative;
+		padding-bottom: 8px;
+		transition: color 0.3s, transform 0.3s ease-in-out;
+	}
+
+	/* Effetto di hover sui link */
+	.links a:hover {
+		color: #ffcc00; /* Colore dorato per l'hover */
+		transform: translateY(-4px); /* Leggera animazione per spostare il link */
+	}
+
+	/* Rimuoviamo l'effetto dorato per il link attivo */
+	.active {
+		color: white; /* Nessun colore dorato per il link attivo */
+		font-weight: normal; /* Non rendiamo il link più in evidenza */
+	}
+
+	.clock {
+		font-family: "digital-clock-font", monospace;
+		font-size: 22px;
+		color: #ffcc00;
 	}
 </style>
