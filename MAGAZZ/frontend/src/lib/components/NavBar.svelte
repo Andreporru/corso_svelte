@@ -7,10 +7,7 @@
 	let secondi: number;
 	let timer: any;
 
-	// Variabile per memorizzare il link attivo
-	let activeLink = writable<string>("/");
-
-	// Aggiorniamo l'orario
+	
 	const updateTime = () => {
 		const date = new Date();
 		ora = date.getHours();
@@ -18,27 +15,23 @@
 		secondi = date.getSeconds();
 	};
 
-	// Timer per aggiornare il clock ogni secondo
+	
 	onMount(() => {
 		updateTime();
 		timer = setInterval(updateTime, 1000);
 
-		// Controlliamo l'URL iniziale e lo impostiamo come attivo
-		activeLink.set(window.location.pathname);
+	
+		
 	});
-
-	// Puliamo il timer quando il componente viene distrutto
+ 
 	onDestroy(() => {
 		clearInterval(timer);
 	});
 
-	// Funzione per impostare il link attivo quando viene cliccato
-	const setActive = (path: string) => {
-		activeLink.set(path);
-	};
+
 </script>
 
-<!-- Navbar -->
+
 <div class="navbar">
 	<div class="links">
 		<a href="/" class="active">Home</a>
@@ -49,13 +42,13 @@
 		<a href="/articolo/question" class="active">Documentazione</a>
 	</div>
 
-	<!-- Orologio -->
+	
 	<div class="clock">
 		{ora}:{minuti < 10 ? "0" : ""}{minuti}:{secondi < 10 ? "0" : ""}{secondi}
 	</div>
 </div>
 
-<!-- Stile -->
+
 <style>
 	@font-face {
 		font-family: "digital-clock-font";

@@ -56,7 +56,7 @@
     };
 
     const modifica = async (codice_articolo: string) => {
-    // Verifica se i campi sono validi
+    // Verifica se i campi sono validi<
     if (codice1.trim() === "" || descrizione_articolo.trim() === "" || prezzo <= 0 || quantita < 0) {
         alert("Inserire valori validi per tutti i campi.");
         return;

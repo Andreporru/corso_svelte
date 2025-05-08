@@ -236,7 +236,7 @@
 			<p class="dato" {onclick}>data nascita: {storeUser.datan}</p>
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-			<p class="dato" {onclick}>luogo nscita: {storeUser.luogon}</p>
+			<p class="dato" {onclick}>luogo nascita: {storeUser.luogon}</p>
 
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
